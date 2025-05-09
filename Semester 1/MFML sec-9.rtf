@@ -1,0 +1,3862 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs36 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Lecture 9 - Section 9.mp4\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0\fs24 \cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+25:43/2:19:09\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+0:10\
+right so can you can one of you confirm that you can hear me\
+0:20\
+okay fine all right so let me share my screen then\
+0:37\
+you should be able to see my screen hopefully\
+0:40\
+can you see my screen and one of you confirmed that you can\
+0:46\
+see my screen okay thank you\
+0:50\
+so i think we are ready to go now okay\
+0:54\
+so up to now right what we've been doing is\
+0:59\
+essentially a review of linear algebra right and we\
+1:04\
+ended with linear algebra and vector calculus\
+1:07\
+but whatever we've seen up to now is\
+1:10\
+strictly speaking only a foundation for data science\
+1:14\
+now from this lecture onwards okay and leading up to lecture 16 we'll\
+1:19\
+be looking at algorithms that are more relevant for\
+1:23\
+data science okay for example we'll be looking at gradient descent\
+1:27\
+then we'll be looking at kkt conditions lagrange\
+1:30\
+multipliers svm pca kernel methods and so on so this\
+1:36\
+part of the course is more tuned towards the practice of data\
+1:42\
+science but we could not have gone here directly\
+1:45\
+without a firm foundation in linear algebra okay so that's why the first\
+1:49\
+eight lectures were on a linear algebra so with that introduction let me begin\
+1:53\
+lecture nine okay so we will look at continuous\
+1:58\
+optimization concepts in this lecture okay so first of all what is continuous\
+2:02\
+optimization now optimization is essentially of two kinds discrete and\
+2:08\
+continuous discrete optimization is optimization\
+2:12\
+where the variables are all say binary okay\
+2:16\
+they'll take two values zero and one and you have to say there's a cost\
+2:19\
+function uh defined in terms of these variables\
+2:23\
+and you essentially have to search through\
+2:26\
+a discrete space so where every variable takes\
+2:29\
+one of two values zero or one and so there are n variables the space is of\
+2:34\
+size two to the power of n okay that's discrete optimization\
+2:38\
+so that is within the\
+2:40\
+scope of computer science okay so for example\
+2:44\
+uh you have a cost function uh in say the knapsack problem\
+2:49\
+right so that's a discrete cost function because\
+2:54\
+whether you put an item into the bag or you don't put it is a is a discrete\
+2:58\
+choice right but in continuous optimization\
+3:02\
+the underlying variables okay the underlying variables are continuous\
+3:07\
+variables they take values that lie between 0 and 1 not just 0 and 1 but any\
+3:12\
+values between 0 and 1. so they're real numbers between 0 and 1. and it need not\
+3:16\
+be 0 and 1 it could be any bounds okay a and\
+3:20\
+b so now the thing is this\
+3:22\
+these are continuous optimization concepts that we'll be looking at\
+3:26\
+in this lecture and the reason we'll be doing so\
+3:29\
+is that in data science so for example\
+3:33\
+least square regression the problem can be posed\
+3:37\
+as one of you you're trying to find the best\
+3:41\
+surface that approximates the data that is given the best linear surface that\
+3:45\
+approximates the data given and that\
+3:48\
+loss function can be expressed\
+3:51\
+as a continuous optimization problem so that that\
+3:56\
+problem can be expressed as a continuous optimization problem\
+3:59\
+and we need to find the best loss function so that requires us to solve\
+4:02\
+that continuous optimization problem so i'm going ahead of the story a little\
+4:06\
+bit we'll look at this in much greater detail so that's why i'm not going to go\
+4:09\
+right now into mathematical nitty gritty i just want to give you a picture up\
+4:13\
+front so we are going to look at continuous optimization concept in this\
+4:17\
+lecture and then there are two main branches of\
+4:20\
+continuous optimization constrained and unconstrained\
+4:24\
+optimization okay and we'll be looking at both of\
+4:27\
+these versions constrained and unconstrained optimization uh because\
+4:32\
+both of them are relevant from the point of view of data science and actually we\
+4:35\
+can show that constrained optimization problems can actually be posed as\
+4:39\
+unconstrained optimization problems so you can convert constraint into an\
+4:43\
+unconstrained problem so using lagrange multipliers we'll be looking at that in\
+4:47\
+a subsequent lecture so now what we really need to do is that\
+4:51\
+we need to seek the minimum of an objective function\
+4:55\
+which we assume is differentiable okay so the thing is our objective\
+5:00\
+function is taken to be differentiable\
+5:03\
+the reason we need it to be differentiable is so that we can compute\
+5:08\
+the gradient everywhere okay the gradient\
+5:15\
+everywhere now what is this gradient now we know from the previous lecture\
+5:21\
+let me open this that you can talk about the the gradient\
+5:25\
+of f is del f by del by x 1\
+5:31\
+a bar f by d by x 2 and so on del f by\
+5:36\
+del x n right it's a row vector one cross n row vector this is what you\
+5:45\
+can recall from your vector calculus class so we're assuming that the\
+5:49\
+gradient exists everywhere why why do we need the gradient to exist\
+5:53\
+everywhere we need it to exist everywhere because the gradient will be\
+5:57\
+crucial in optimization okay\
+6:02\
+so that's why we need the function to be differentiable\
+6:05\
+so the finding the minimum of an objective\
+6:09\
+function is like finding the values of the\
+6:11\
+objective function and since the objective function is\
+6:14\
+differentiable the gradient will tell us the direction\
+6:18\
+to move to get the maximum increase in the objective function\
+6:22\
+okay so the idea is this the gradient will act as if it's a pathfinder\
+6:27\
+so you're at a certain point in space okay just imagine\
+6:31\
+okay just imagine that your surface looks like this okay this\
+6:36\
+is your function f and there's only one variable x\
+6:40\
+okay now the thing is we would let me draw a better function\
+6:45\
+okay let's say a function looks like this\
+6:49\
+okay now i want to make it really smooth\
+6:56\
+so this is a function right and now the thing is if i want to minimize f\
+7:02\
+over all of x okay visually this is the point i have\
+7:06\
+to get to right\
+7:09\
+this is the point i have to get to now suppose i start at this point okay let\
+7:14\
+me call this point s is the point at which i am starting\
+7:19\
+now what i need is to know okay look\
+7:23\
+this is where i currently am in what direction should i go\
+7:28\
+in order to have a hope of getting to the\
+7:32\
+optimum of this function so what i do is that i compute the gradient\
+7:37\
+of this function which is basically df by dx because there's only one variable\
+7:41\
+here right and df by dx will tell me\
+7:44\
+because df by dx is negative here okay tells me if you increase x\
+7:50\
+f will decrease okay\
+7:53\
+i hope all of you are with me on this idea here\
+7:56\
+right since df by dx is negative\
+8:01\
+since df by dx is negative\
+8:06\
+at the point\
+8:10\
+x is equal to s okay\
+8:13\
+we see that increasing x\
+8:21\
+will decrease it okay so now that because of the sign of\
+8:28\
+df by dx we know what to do now we are going to\
+8:32\
+go from s2 from x is equal to s2 x is equal to s plus delta\
+8:37\
+x right so delta x is greater than zero\
+8:40\
+we'll move in the right to the right of x\
+8:43\
+okay because we're going to decrease so then then we'll move to a new point\
+8:48\
+okay then we'll move to a new point at this new point we'll again ask this\
+8:52\
+question we've got to this point okay\
+8:56\
+now are we at the optimal point yet\
+8:59\
+we'll again compute the gradient which is again df by dx again we see it's\
+9:03\
+negative so each time we see that the gradient is negative\
+9:07\
+we move in the positive x direction okay\
+9:12\
+until we get to a point where the gradient vanishes that is df\
+9:16\
+by dx is equal to 0 at that point what do we say\
+9:20\
+we say there is nothing more that we can do\
+9:23\
+our optimization is done okay we have reached\
+9:28\
+the we've got to the best point that we could\
+9:31\
+okay now you see okay this is the optimum\
+9:34\
+for the whole function starting from this point which we call s we got to\
+9:39\
+this optimum point which i call o right and then\
+9:43\
+that's all we can do but suppose we started from here\
+9:47\
+okay let me call this r\
+9:51\
+okay now following the same strategy i can only end up with\
+9:56\
+this point right\
+9:59\
+because i again i compute the gradient go to the next point compute the\
+10:02\
+gradient go to the next point and i eventually get to the point at which\
+10:06\
+some point at which the gradient vanishes df by dx\
+10:10\
+is 0 so i have to declare that this is the best i can do but then you can\
+10:14\
+clearly see that this point that we've got over here is not optimal because\
+10:18\
+there's a function the function f has taken a smaller value at the point o\
+10:23\
+right and you stopped at this point let's call this q\
+10:26\
+right q is not optimal o is optimal so what do what can we do this really\
+10:32\
+speaking nothing that we can do okay so what i have outlined for you\
+10:36\
+just now is the so-called gradient descent\
+10:39\
+algorithm okay in a nutshell so all that we do is\
+10:42\
+you compute the gradient and follow the gradient\
+10:46\
+and you start at a given point keep computing the gradient keep moving\
+10:50\
+until you get to a point where the gradient vanishes and you call that your\
+10:54\
+optimum so of course the method has weaknesses\
+10:58\
+principally the weakness is that it's heavily dependent upon the starting\
+11:02\
+point if i happen to start at this point uh which\
+11:08\
+which i call s i had a chance of getting to o\
+11:12\
+but if i start at this point r then i can only get to q\
+11:16\
+that's a big weakness of the method it's heavily dependent upon\
+11:20\
+the initial point right then there is one more\
+11:25\
+nagging issue i said that i start from s and i move to another point right how\
+11:30\
+much should i move okay you say okay move by a small amount\
+11:35\
+well what is a small amount how do we quantify the amount of\
+11:39\
+movement so that it may so happen\
+11:43\
+that we actually started at the right point\
+11:46\
+but because we were very aggressive in our movement\
+11:49\
+we overshot the optimal point\
+11:53\
+okay i'm going to talk about that in detail in this lecture okay the choice\
+11:57\
+of what is called the learning rate you may have heard of this in the context of\
+12:00\
+machine learning learning rate is essentially we know in what direction we\
+12:03\
+must move okay but how much should we move\
+12:08\
+that's the whole question so we have to come up with an algorithm that will uh\
+12:15\
+do a good job of uncovering the optimal point okay provided we have a chance of\
+12:21\
+getting to it but the initialization problem is something that we really\
+12:25\
+speaking cannot solve okay that's in the nutshell is gradient\
+12:28\
+descent which is what we will be looking at today\
+12:32\
+okay how i see a question already how do we determine the df by dx would be\
+12:36\
+negative well you can actually compute df by dx numerically right\
+12:40\
+so so generally so there are two ways of going about\
+12:43\
+that problem okay how do we compute df by dx is the\
+12:47\
+question okay now if f is if f is\
+12:58\
+x to the power of n let's say then df by dx will be\
+13:05\
+n x to the power n minus 1 right and so we can plug in the value of x and find\
+13:10\
+out what the value is now suppose f is a function which is very inconvenient it's\
+13:16\
+not given in analytical form like this then what we can do is we can uh\
+13:21\
+evaluate it as if it's a function numerically right compute f x plus delta\
+13:25\
+x then you compute f of x\
+13:29\
+and then you compute delta x divide f of x plus delta x minus\
+13:34\
+f of x by delta x for very small\
+13:40\
+delta x how small should this delta x be as\
+13:44\
+small as this numerically possible on your computer\
+13:47\
+right and then from here you can you can determine whether\
+13:51\
+the uh the derivative is negative or positive you can actually determine the\
+13:55\
+derivative itself in whole as say minus 2.5 minus 3 and then you know in which\
+14:01\
+direction you have to move okay hope that answers your question\
+14:07\
+okay now i think that the let me just check this the settings\
+14:12\
+i have a feeling the meeting options don't allow you to\
+14:16\
+unmute yourself okay so let me just said that correctly hello mixer attendees\
+14:20\
+yeah okay you can actually uh\
+14:24\
+ask me these questions now about muting yourself but please uh\
+14:29\
+follow decorum okay uh don't unmute yourself unnecessarily okay i will\
+14:34\
+donate to the chat board as well so i'll try to take care of all of your\
+14:38\
+questions okay\
+14:41\
+so now i gave you\
+14:45\
+an idea of gradient descent okay in a nutshell\
+14:47\
+this is really half the lecture already now we're going to of course get into\
+14:51\
+the nitty gritty of gradient design talk about learning rate and nuances here and\
+14:56\
+there but the big picture has already been given to you\
+15:00\
+suppose you have the data given in this table\
+15:03\
+okay you have x and y so what you essentially have is a\
+15:07\
+uh is a data that can be viewed in this fashion okay let me just draw it over\
+15:12\
+here so i have\
+15:15\
+give me a second so i have the y axis like this\
+15:22\
+and then i have the x axis like this okay and x is one y is three point\
+15:29\
+one that's this point\
+15:32\
+okay then you have four point nine at x is two then you have seven point three\
+15:36\
+at x is three and nine point one okay so this is what you have now the thing is\
+15:42\
+i'd like to fit a curve to this data okay and so to make the to make things\
+15:46\
+little bit more interesting let me not already align the points as if they\
+15:50\
+belong to a straight line so let me play a few games like this\
+15:54\
+okay so now what i what usually needs to be done in situations like this\
+15:59\
+is that you want to find a law according to which this data was\
+16:03\
+generated so let's assume that there is a practitioner of data science he\
+16:06\
+happens to have collected data okay and x and y could be anything that\
+16:11\
+is uh relevant to this person's context okay\
+16:15\
+so x could be the\
+16:17\
+year and y could be income levels or x could be some\
+16:21\
+particular the feature and y could be the value of the feature etcetera\
+16:25\
+etcetera okay another thing is this person who has\
+16:28\
+collected the data wants to\
+16:31\
+identify the law according to which this data was generated because this person\
+16:36\
+has a reason to believe that the data was not generated randomly\
+16:40\
+it comes out of some law so what this person wants to do\
+16:45\
+is that he or she wants to identify a linear surface or a\
+16:50\
+linear curve that best fits this data so in other words i'm looking for something\
+16:54\
+like this okay so if i say that y is equal to\
+16:58\
+maybe 2x plus 4\
+17:02\
+okay that happens to be in some sense the\
+17:05\
+best fit to this data now you might say okay look this how can\
+17:09\
+you say this is a fit of the data at all because it doesn't happen to pass\
+17:13\
+through any of the given data points okay now what\
+17:17\
+i i'll say to in response to that is that you can assume that there is a\
+17:22\
+fair bit of noise in the data collection so maybe\
+17:26\
+there's not a single data point that was actually collected\
+17:30\
+in a noise-free way okay so the best i can hope for is to minimize the sum\
+17:36\
+total of all these error squared so let's call this error\
+17:39\
+e1 let's call this error e2 okay what are what are these errors e1\
+17:45\
+e2 e3 and so on so e1\
+17:49\
+is the difference between what the data point actually tells me y1\
+17:55\
+minus what my\
+17:58\
+model is predicting y1 minus ax1 minus b1\
+18:04\
+okay the model is y is equal to ax plus b and so what i have is\
+18:09\
+futative values for a and b because now i have to solve for a and b right so\
+18:14\
+what i do is i i construct an error like this e 1 is equal to y 1 minus\
+18:20\
+a hat x 1 minus b b 1 hat so these are the values that i'm currently using okay\
+18:25\
+so let me call this it's not b1 this is just b hat\
+18:29\
+okay now the loss function becomes\
+18:34\
+e 1 squared plus e 2 squared plus a e n squared\
+18:41\
+okay and then i'd like to minimize\
+18:45\
+e1 squared plus e2 squared plus en squared\
+18:49\
+i'd like to minimize but with respect to what with respect to a hat\
+18:54\
+and b hat right i'm going to fiddle with the\
+18:57\
+values of a and b so it's now a hat and b hat then i'm\
+19:01\
+going to change it when i change it then what will happen to this curve maybe\
+19:05\
+this curve will become something like this\
+19:08\
+you can see that it's i made it move to the dotted line if i fiddle it with\
+19:12\
+fiddle with it again maybe it becomes something like this\
+19:16\
+right so now each time i fiddle with a and b\
+19:20\
+this curve is going to shift right\
+19:23\
+i can control the amount of shift the orientation of the curve etc etc\
+19:28\
+by by choosing values of a and b so now what's the question the question\
+19:32\
+is can you find optimal values of a and b\
+19:37\
+that will minimize the sum total of all the error squareds\
+19:43\
+right so why did i choose the error squared\
+19:46\
+because now if i don't choose l squared suppose i have only the first power\
+19:50\
+then it's possible for e1 to be positive right or even to be negative\
+19:56\
+e2 to be positive e3 to be negative and so on so actually i have\
+20:01\
+a high error right so\
+20:04\
+the point i have the the line i have is making a fair bit of error with respect\
+20:08\
+to all the data points but the positive errors and negative errors are canceling\
+20:12\
+out so that i get the false picture that is having a\
+20:16\
+very good fit for the data i don't want that to happen so i'd like to punish\
+20:21\
+discrepancies whether positive or negative\
+20:23\
+by an absolute term i could have taken mod\
+20:27\
+of e1 plus mod of e2 and so on but i'm not going to do that because\
+20:31\
+this this function is no longer\
+20:34\
+differentiable okay this story you might have heard\
+20:37\
+also in machine learning so we choose a loss function\
+20:41\
+that is differentiable why because we can compute the gradient why do we need\
+20:45\
+to compute the gradient because i'm going to use gradient descent\
+20:50\
+as the principal means of identifying the optimal\
+20:53\
+uh point okay\
+20:56\
+i hope the big picture uh is is clear to all of you okay this\
+21:00\
+is what i'm actually going to do so our aim then summarize what i'm\
+21:06\
+saying our aim is to find a and b\
+21:09\
+such that the difference between the actual y and the predicted y is minimum\
+21:14\
+the predicted y is a x i plus b for a particular point x i\
+21:19\
+the actual value recorded was y i for x i because the point is x i comma y i\
+21:26\
+okay now i have to look at y i minus of a x i plus b\
+21:31\
+that's the error at the ith point\
+21:34\
+now i square it and i sum over all the data points\
+21:38\
+and that gives me the loss function which is a function of a comma b\
+21:41\
+if i change a and b then i'm going to get a different loss\
+21:45\
+value so the interesting question is is there\
+21:48\
+a setting to a and b that will minimize this loss form\
+21:53\
+that will give me the best fit\
+21:56\
+okay now if you look at this curve here\
+22:00\
+it's not too difficult to convince yourself that the best fitting curve may\
+22:04\
+actually not point through any may actually not pass through\
+22:08\
+any of the given data points that's okay\
+22:11\
+it'll be a sort of a compromise line that will not pass through any of the\
+22:15\
+data point will sort of split the given data points so that\
+22:20\
+it doesn't make a huge error with respect to any of the given data points\
+22:24\
+suppose i tried to be too cheeky and decided\
+22:28\
+the thing is why don't i let this pick some two of these data points\
+22:33\
+and let my line pass through those two data points\
+22:38\
+okay now the thing is i'm generally going to get very poor results because\
+22:41\
+of that okay\
+22:44\
+because if i pick two data points and pick my line so that it passes through\
+22:49\
+both of those data points then the line that i get\
+22:54\
+is not likely to be a good fit to some of the other data points\
+22:58\
+so in order to respect the fidelity of all the data points\
+23:03\
+okay what i decide is that i have to uh what i decide is\
+23:09\
+that i have to respect all these data points\
+23:14\
+okay and not just some two of them and say oh look i'm going to pass through\
+23:18\
+those two points because for some reason they're special no they're not special\
+23:23\
+they're as special or not special as any of the other points\
+23:27\
+okay so the now this is what i have just done is\
+23:30\
+unweighted least square regression now you can have weighted least square\
+23:34\
+regression where you know for a priori that some\
+23:38\
+points are more important than other points and so what you do is that you\
+23:41\
+take this loss function expression and you use coefficients\
+23:46\
+to uh the eighth point as w i okay so then l a b will become something like\
+23:51\
+this okay\
+23:54\
+l a b can then be written as sigma i is say 1\
+23:58\
+to n w i\
+24:01\
+y i minus a x i plus b\
+24:06\
+the whole squared okay now these weights\
+24:10\
+can decide how special the eighth point is and decide\
+24:15\
+and thing is wrong with my\
+24:23\
+pen today can decide the importance of the\
+24:34\
+of the eighth point so that's called weighted\
+24:39\
+weighted least square regression so there are different flavors to this\
+24:42\
+problem okay so i just talked about the unweighted one\
+24:46\
+okay where all weights are w is equal to one okay so that's\
+24:51\
+basically it okay let's move on\
+24:57\
+so now we set up the problem yeah go ahead\
+25:01\
+uh so sir here um we have been already given with x and y and then we are just\
+25:06\
+finding out the a and b is that okay yeah yeah\
+25:10\
+thanks oh this is a comment not a question\
+25:13\
+right yeah so it's a very intuitively defined problem okay that's why\
+25:20\
+unconstrained optimization is uh very important from data science okay uh\
+25:27\
+from a data science point of view because a very fundamental problem like\
+25:30\
+least square regression can be viewed clearly as an optimization problem okay\
+25:34\
+now let's look at some techniques to actually uh look at this uh problem more\
+25:38\
+carefully i already drew a curve like this okay so\
+25:43\
+in unconstrained optimization what we do is that we move in the direction of the\
+25:48\
+negative gradient okay to decrease the objective function\
+25:52\
+if i move in the direction of the positive gradient what will happen i\
+25:55\
+will increase the value of the function right because if you recall what we did\
+26:01\
+in vector calculus we know that df\
+26:05\
+is equal to change in the value\
+26:11\
+of the function f can be written as\
+26:17\
+device f by delta x 1 times delta x 1\
+26:22\
+plus delta f by del by x 2 delta x 2 plus\
+26:28\
+a bar f by del x n times delta x n okay\
+26:33\
+but that is the same the same as gradient of f\
+26:37\
+dot delta x 1 delta x 2\
+26:44\
+delta x n right so the gradient of f is\
+26:50\
+just these derivatives these partial derivatives\
+26:53\
+so gradient of f is delta f by delta x 1\
+26:59\
+del f by delta x 2 del f by delta x n right this is the one\
+27:06\
+cross n vector that we know\
+27:10\
+is the gradient right so we take the one cross n vector\
+27:13\
+right and we multiply it with the n cross one vector which is the delta x\
+27:18\
+vector that gives me the change in the function\
+27:23\
+f okay so gradient f is a vector\
+27:26\
+and that the and this uh delta x vector is a vector of movement\
+27:30\
+okay so then just give me a second there's something wrong with\
+27:36\
+okay maybe i'll just go to the next page right so you if you if your gradient of\
+27:40\
+f is like this and your delta x is in in the same\
+27:44\
+direction then gradient of f dot delta x\
+27:49\
+why schwarz inequality will be what will be the norm of gradient of f\
+27:54\
+times the norm of delta x times cosine of the angle\
+27:59\
+okay angle between gradient of f and\
+28:06\
+delta x right hope all of you are with me so far\
+28:09\
+so now if i move in the direction of the\
+28:12\
+of the gradient i see the largest positive change in the function the\
+28:17\
+function will increase if i move in the opposite direction this angle is 180\
+28:21\
+degrees so gradient f points like this delta x points in the opposite direction\
+28:26\
+angle is 180 degrees so the function will decrease that's the idea i'm using\
+28:30\
+over here so i move in the direction of the negative gradient delta x should be\
+28:34\
+in the direction of minus gradient of f okay so to decrease the objective\
+28:39\
+function that is clear so at a given point i know what to do\
+28:43\
+okay i know in what direction i have to move in order to change the value of the\
+28:47\
+function so then what what do we need to do well\
+28:50\
+we say okay look let's take optimization as a step-by-step process we start at a\
+28:54\
+given point and then ask okay look what should we do at this point find the\
+28:58\
+gradient right so imagine that you're on a\
+29:03\
+on the hill slope and you have to actually get to the bottom of the hill\
+29:07\
+okay which is the valley and then you say okay if i move in this\
+29:10\
+direction i'm moving i'm going to move up the slope\
+29:13\
+if i move back where i came from i'm going to go directly backwards\
+29:17\
+i'm going to climb up the hill in its steepest direction so let me move\
+29:22\
+in the steepest descent direction that's what is the negative gradient\
+29:27\
+okay but then like i said before there is a ticklish question as to decide how\
+29:32\
+much to move by and we will get to that shortly\
+29:35\
+okay so two then is we move in the direction of\
+29:39\
+negative gradient to decrease the objective function and then we move\
+29:42\
+until we encounter a point at which the gradient is zero\
+29:47\
+okay so starting from here i get to this point the gradient is zero if i start\
+29:50\
+from here i get to this point the gradient is zero if i start on to the\
+29:55\
+right of this hill at hilltop okay\
+29:58\
+from somewhere somewhere here then i'm only going to end up here\
+30:02\
+if i start to the left of this hilltop then i hit the jackpot i'm going to end\
+30:07\
+up with a true optimum so the initialization point is not in my\
+30:10\
+control i don't know what would be a good initialization\
+30:14\
+point so what is done in general is that you decide to start from multiple\
+30:18\
+initialization points and do gradient descent until you hit a point at which\
+30:22\
+the gradient vanishes then take the best of the solutions that you have okay\
+30:26\
+that's what is done in practice okay\
+30:30\
+so let's take an example let i of x be this function x to the\
+30:34\
+power 4 plus 7 x to the power 3 plus 5 x squared minus 17 x plus 3.\
+30:40\
+okay now the gradient because it's only a\
+30:43\
+function of one variable the gradient is now indistinguishable from the first\
+30:46\
+derivative right so d i x by d x will be 4 x cube plus 21 x squared plus 10 x\
+30:52\
+minus 17. now setting the gradient to zero\
+30:56\
+okay identifies points corresponding to which\
+31:00\
+you have a local minimum or local maximum\
+31:03\
+and there are three such points since this is a cubic equation\
+31:07\
+now sometimes the gradient can be set\
+31:11\
+in such a way that it can actually be solved\
+31:13\
+quite easily so for example if this had the original function ix had been a\
+31:17\
+cubic equation okay so if i x was cubic i had a page\
+31:25\
+if i x was a cubic equation\
+31:34\
+okay that is highest power is equal to 3 is power on x is equal to 3\
+31:42\
+then pi by dx\
+31:48\
+would be quadratic okay then setting dx di by dx is equal\
+31:55\
+to 0 would be something like ax squared you know scribble here\
+32:01\
+ax squared plus bx plus c is equal to 0\
+32:07\
+right which would mean solving for this equation right and\
+32:12\
+that's the same thing as x is equal to minus b plus or minus\
+32:16\
+square root of b squared minus 4ac divided by 2a\
+32:21\
+right so let's assume that everything is fine and there's no imaginary stuff\
+32:24\
+involved okay so then the thing is we can solve\
+32:27\
+for this analytically okay so analytically means that we can\
+32:34\
+solve for it using a certain formula okay now we might get lucky and the\
+32:40\
+gradient can the point at which the gradient vanishes can\
+32:44\
+actually be evaluated through a formula you plug the values\
+32:47\
+of the of the give of the given problem into that\
+32:50\
+formula and you get that that particular value\
+32:53\
+in the unluckier cases you would have to discover it through a process of\
+32:57\
+iterative search okay this is what will happen in general though okay so\
+33:01\
+uh uh so for this problem we we had something\
+33:05\
+that was cubic so you can there is no formula to get the roots of a cubic\
+33:09\
+equation so you have to essentially do an iterative search but if this original\
+33:14\
+i of x for the cubic equation then d i by dx would be quadratic and it would\
+33:18\
+all work out okay\
+33:20\
+so for low order we can solve the equations analytically\
+33:25\
+in the manner that i just described and find points at which the gradient is\
+33:28\
+zero okay\
+33:30\
+but suppose you wanted to solve this problem in general\
+33:33\
+you consider the problem of solving for the minimum of a real valued function f\
+33:38\
+of x so you want to find minimum of f of x over x\
+33:42\
+where f is a function that takes you from a d\
+33:45\
+dimensional vector x to a real number\
+33:49\
+okay so f is a function that goes from rd to r and that's your objective loss\
+33:53\
+force so for example if i had uh in my least square regression\
+33:59\
+my loss function has n data points right x i y i\
+34:04\
+right so the thing is there are uh each data point\
+34:08\
+uh has two parameters in it so for n data points i have two n\
+34:13\
+uh uh i have a function in two n variables\
+34:18\
+right so that function in two n variables has to be mapped to a\
+34:23\
+a real number because that's the loss function value\
+34:26\
+so now the thing is depending upon your data points\
+34:29\
+okay you could have a very high dimensional loss function\
+34:32\
+okay so uh the the context of data science means that\
+34:38\
+these values like d can be quite large because it's really dictated by the\
+34:42\
+number of data points that you have so then we will assume that our function\
+34:46\
+f is differentiable but that the minimum cannot be found\
+34:50\
+analytically in closed form okay so this is usually the situation\
+34:53\
+that we will find ourselves in we can define our loss function\
+34:58\
+okay so i have defined the loss function very conveniently for the least squares\
+35:01\
+problem as the sum of the squares of the errors right\
+35:06\
+i told you already then that we could have taken the sum of the absolute\
+35:09\
+values of the errors and that would have a similar behavior\
+35:13\
+to the sum of the squares of the errors but it has an important distinction from\
+35:17\
+that case which is that in the second case the loss function is\
+35:21\
+not differentiable i can't take the gradient everywhere\
+35:25\
+okay so i could end up at a given point where the gradient cannot be computed\
+35:28\
+it's something like this right so uh what does non differentiability mean\
+35:34\
+so there is no sharp v\
+35:38\
+no sharp v\
+35:41\
+okay differentiable everywhere like this\
+35:50\
+this is okay this guy here is not okay\
+35:59\
+okay now it's differentiable nearly everywhere\
+36:02\
+okay but not at this point but here differentiable everywhere we\
+36:06\
+want functions like this not like this okay so we when you set up the loss\
+36:10\
+function like sum of squares then you get the guy on the right hand side not\
+36:14\
+the guy on the left hand side so the main idea of gradient descent is\
+36:18\
+to take a step from the current point of current point\
+36:21\
+okay of magnitude proportional to the negative gradient of the function of the\
+36:26\
+current point okay so we by by now i hope this message has been\
+36:31\
+uh emphasized enough okay now let's look at some\
+36:35\
+uh how to set up this problem in terms of\
+36:38\
+uh symbols so let's say you have your starting\
+36:43\
+point is x naught okay it's a vector x naught\
+36:46\
+so it's d it's a d dimensional vector okay uh that's x naught\
+36:52\
+now x one is related to x naught how x 1 is the same as x naught minus alpha\
+36:58\
+times the gradient of f evaluated\
+37:01\
+at x naught ok this notation here means ok this notation\
+37:08\
+so x1 is equal to x naught\
+37:12\
+minus the gradient of f okay\
+37:16\
+evaluated at x is equal to x naught so for convenience i write this\
+37:22\
+gradient of f let's call this\
+37:28\
+f gradient of f\
+37:31\
+x evaluated at x is equal to x naught\
+37:35\
+i write this as gradient of f x okay this is what it actually means\
+37:41\
+but it means i'm taking the gradient of f\
+37:43\
+at some x and then plugging in after i please taking the gradient then\
+37:47\
+i plug in x is equal to x naught okay that's what this means\
+37:51\
+so now i compute the gradient of f\
+37:55\
+at x naught okay that's a row vector i take the\
+37:59\
+transpose of the row vector that becomes a column vector remember my x naught is\
+38:02\
+the column vector so this guy okay x1 is also a column vector\
+38:12\
+and so now the thing is i have to decide to move through only\
+38:17\
+through a small step size alpha alpha is greater than zero try to move\
+38:21\
+in the direction negative gradient okay\
+38:24\
+but the question i think someone of you has to go back onto mute mode\
+38:29\
+yes i'm going in i'm going to so\
+38:44\
+now the thing is this alpha will tell you how much you have to move\
+38:48\
+in the direction of negative gradient okay so alpha is controlling the amount\
+38:52\
+i am moving in the direction of negative gradient but\
+38:55\
+the direction itself is fixed the negative gradient\
+38:58\
+tells me so if i want to view this situation geometrically here is x naught\
+39:03\
+right and x 1 is this point okay\
+39:08\
+the length of this vector is the length of alpha times the\
+39:12\
+gradient of f of x naught okay this is the length of this vector\
+39:18\
+so alpha is controlling the amount of movement along the\
+39:23\
+negative gradient okay it's a crucial parameter now it's\
+39:27\
+possible that uh if i choose alpha wrong\
+39:32\
+i do a very bad job okay so let me go back to the\
+39:35\
+figure and show you what might happen see if i'm here right\
+39:39\
+i choose alpha a small amount and go over here no problem but suppose i\
+39:43\
+choose alpha a large amount you said moving the direction negative gradient\
+39:46\
+that means moving the positive x direction\
+39:49\
+i go the whole hog and i move all the way to the right of\
+39:52\
+this figure here right\
+39:56\
+have i done a good job no i've done an awful job\
+40:00\
+because now i'm very far away from the true optimal\
+40:04\
+which is this guy over here i move the direction of negative\
+40:07\
+gradient but then i'm\
+40:11\
+i move really far away so clearly i shouldn't have done that\
+40:17\
+okay so now what should i have done i should have chosen the small alpha\
+40:22\
+okay so i'll choose a very small album then what will happen is i'll go to this\
+40:25\
+next point then i'll i'll crawl to the optimal point\
+40:31\
+okay now why is crawling to the optimal point a bad thing\
+40:35\
+will take me forever to get to the optimal point so if i if i'm very\
+40:39\
+ambitious with alpha i risk completely overshooting the optimal\
+40:44\
+point if i'm very\
+40:46\
+unambiguous with alpha i end up crawling to the optimal point\
+40:51\
+so now the thing is you can clearly see that uh\
+40:57\
+choice of alpha is crucial how do i choose a good alpha\
+41:01\
+okay so when you when you have a statement like\
+41:04\
+this i mean for a small step size alpha okay such that\
+41:08\
+uh f of x one is less than equal to f of x naught so basically we want to improve\
+41:12\
+the value of the objective function that is we're seeking\
+41:16\
+its minimum so we want to reduce the value so you don't want to go from x\
+41:20\
+naught to some x 1 where f x 1 is pretty large actually there is\
+41:25\
+a caveat to that there is a version of gradient descent\
+41:28\
+where we don't mind going to a larger value of f at a given\
+41:33\
+point okay i'm going to come to that a little\
+41:35\
+bit later but let's assume that in gradient\
+41:38\
+descent uh\
+41:40\
+a good option would be to go to a point x 1 from x naught where the value of the\
+41:44\
+function actually decreases so you start at some initial point x\
+41:48\
+naught and then iterate according to x i plus 1\
+41:53\
+is x i minus alpha i\
+41:56\
+okay times the gradient of f evaluated at x is equal to x i transpose\
+42:02\
+okay now when i use this alpha i here deliberately well i can choose to have\
+42:09\
+different step sizes for different values of i\
+42:14\
+okay so basically if i'm if i'm at the initial point of the\
+42:19\
+search i can say that\
+42:22\
+my initial point is likely to be very far away from the optimal\
+42:27\
+right so i can choose an alpha i to be pretty large i say look i'm very far\
+42:31\
+away from the optimal so why don't i take a risk\
+42:36\
+and choose a large alpha i right\
+42:39\
+in the initial stages and then when i get\
+42:42\
+closer and closer to the optimal i say see\
+42:45\
+i'm already close to the optimal now let me not undo all of the hard work i've\
+42:50\
+done so far by choosing a large alpha i and basically overshooting the output so\
+42:55\
+let me just reduce the value of alpha so i'm at liberty to choose alpha i's\
+43:00\
+that depend upon the step number i\
+43:04\
+okay so that's what i'm going to do so for a suitable step\
+43:08\
+size alpha i the sequence of points f x naught will\
+43:11\
+be greater than equal to f of x 1 will be greater than equal to f of x 2 and so\
+43:15\
+on hopefully it will converge to some local minimum so this alpha is also\
+43:20\
+called as a learning rate okay and it's a crucial thing you might\
+43:24\
+have heard in the context of machine learning there's something called a\
+43:27\
+hyper parameter right so basically there is\
+43:30\
+uh there is no easy way of choosing alpha\
+43:34\
+we will look at one way of choosing alpha which is called line search\
+43:38\
+but in general choosing the value of alpha is an art\
+43:44\
+okay it's not a science it's an art okay so so yeah one quick questions uh\
+43:49\
+sure how do we know we've reached the minima sir because i can continue hoping\
+43:53\
+the gradient the gradient will vanish right there if by df df by dx will be\
+43:57\
+zero god oh\
+43:59\
+so one question we have yeah\
+44:02\
+yeah so uh can you go back to the slide which light source this one okay so we\
+44:08\
+are saying x1 equal to x naught minus alpha gradient of f right but the\
+44:13\
+gradient of f at x naught that is itself is negative right\
+44:18\
+no no no so the gradient of f at x naught can be anything so see the\
+44:23\
+gradient of f at x naught x is equal to x naught is a simply a direction of\
+44:27\
+maximum improvement in the value of the function f\
+44:31\
+right so so okay so basically the gradient of f is a collection of partial\
+44:35\
+derivatives right is a vector it will have some components\
+44:38\
+so that vector is telling you if i'm if i move along that along vector\
+44:44\
+the function f will increase that's what it's telling you\
+44:47\
+okay so now\
+44:53\
+so one more question uh can you scroll back to the one more slide where you\
+44:57\
+were explaining yeah yeah where you were explaining that uh it will overshoot the\
+45:03\
+diagram so yeah yeah this one so sir\
+45:08\
+at this point if we took max like very large alpha\
+45:13\
+then that x value will change right yeah the\
+45:17\
+x value will change the thing is in the direction of uh\
+45:21\
+that's obvious so basically i'm doing x1 will be x naught minus alpha\
+45:27\
+df by dx in this context so here alpha is very large df by dx is\
+45:34\
+something minus 2.5 for example so\
+45:38\
+alpha is so minus the alpha is something greater\
+45:41\
+than 0 say 1 so 1.0 into minus 2.5 but there's a minus sign already here so\
+45:48\
+it's asking me to x 1 will be greater than x naught x naught plus something\
+45:52\
+and now if i make alpha very large i'll jump from here\
+45:57\
+to here make sense yeah so thank you\
+46:04\
+thanks uh\
+46:07\
+sir yeah i have a question yeah in general what we take the alpha value\
+46:12\
+generally zero one or zero point zero two or yeah\
+46:15\
+see yeah the thing is yeah that there's a like i said that's an art right so\
+46:19\
+what what is generally recommended is that you start with the large alpha and\
+46:24\
+you have some sort of a decay law like alpha it'd be alpha times e to\
+46:28\
+the power minus kt where t is iteration number okay so\
+46:33\
+you're going to have an exponential decay in alpha\
+46:36\
+another thing is something called a line search which i'll come to shortly where\
+46:40\
+at any given point you say okay let me try\
+46:43\
+to find the optimal alpha and i can do that under certain\
+46:46\
+conditions okay but in general if you say is there\
+46:50\
+a magic number the answer is no there is no magic number that works in\
+46:55\
+all cases so that's why it's called a hyper\
+46:58\
+parameter in the context of machine learning\
+47:02\
+thank you sir okay\
+47:06\
+um sir here in the graph you said you have mentioned like\
+47:12\
+gradient uh we'll be calculating the gradient until it reaches to zero yes\
+47:17\
+right here in the graph it is the negative\
+47:20\
+value right uh sir yeah here it will be negative at this point it's negative but\
+47:25\
+what about at the bottom here okay it's zero right so so basically\
+47:30\
+what i'm saying is i'm going to roll down this hill hopefully i'll be walking\
+47:34\
+down slowly okay so that i'll actually discover this point okay if i discover\
+47:39\
+this point i can compute the gradient and discover it zero and say okay i've\
+47:42\
+got the best point but\
+47:44\
+it's possible that i can overshoot this point\
+47:47\
+okay where by an improper choice of alpha and that's something that you know\
+47:51\
+there's really speaking no no\
+47:54\
+full proof way of guarding against that that's what i'm trying to say\
+47:58\
+okay half a second but it's actually common\
+48:02\
+sense but the thing is there's not very much more that we can we can do anyway\
+48:06\
+let me go and show you some graphs now\
+48:09\
+okay uh to okay so on the figure at the left right\
+48:14\
+we have a learning rate of 0.01 okay and we started at this point here okay\
+48:21\
+and local minimum is reached within a couple of steps that's this little local\
+48:25\
+minimum now i like i said i can't hope to reach\
+48:28\
+the global minimum because that is a question of the initial point\
+48:32\
+i started at the wrong initial point so i'm out of luck i mean even if i could\
+48:36\
+discover the best learning rate etc etc i don't have a hope of discovering the\
+48:40\
+global optimal because i started at a bad initial point okay\
+48:45\
+now before i reduce the learning rate to\
+48:48\
+0.001 one tenth of what it was now notice that\
+48:52\
+instead of just two steps to get to the optimal point i need multiple steps\
+48:59\
+okay so i'm being really really cautious so i'm descending very very slowly\
+49:04\
+and so i will eventually get here it'll take me forever so what you might say\
+49:07\
+okay look why don't we get rid of this learning\
+49:10\
+rate value business by choosing a value that's impossibly small\
+49:15\
+10 to the power minus 25 okay but then it'll take you forever to\
+49:19\
+get there to the optimal uh value and so that that\
+49:23\
+defeats the purpose of optimization right so from an engineering point of\
+49:28\
+view you want to solve problems optimally well and you want to solve\
+49:31\
+them in a reasonable amount of time right so the thing is you don't want\
+49:37\
+alpha that is pertainably small because that defeats the purpose of\
+49:42\
+the the solving the problem isn't okay let's take another example\
+49:48\
+yeah go ahead yeah so you told that uh whatever alpha we choose large or right\
+49:53\
+we cannot uh if we are at a initial point is wrong we cannot yeah go to the\
+49:58\
+uh global right but in the uh go to the slides\
+50:02\
+previous slide yeah if if we if at all we take a larger alpha and it overshoots\
+50:08\
+from this point from the left graph and it goes to the uh\
+50:15\
+okay then what will happen is you go from here\
+50:17\
+and then you end up here let's say but then if you're again going to\
+50:21\
+follow gradient descent you're going to fall back in the same\
+50:24\
+place now if at all by chance if i go to the uh yeah\
+50:29\
+yes yes then yeah then people then decrease the alpha yeah\
+50:33\
+yeah so but then it's a sort of uh lottery right\
+50:38\
+you know you you can't hope to actually devise an algorithm this way an\
+50:42\
+algorithm cannot be based on lottery i mean\
+50:44\
+so what you say is completely true and\
+50:47\
+there are some strategies called hill climbing that basically encapsulate what\
+50:51\
+you're saying like you want to determine to detect the global optimum and\
+50:56\
+sometimes you say that yeah most of the time i'd be descending a hill but\
+51:00\
+sometimes i'll say that look why don't i climb a hill for a change maybe i'll get\
+51:05\
+to the point where i can discover a better global option so that's called\
+51:09\
+hill climbing and that encapsulates the strategy you have in mind but we are\
+51:13\
+talking about gradient design we're not going to do a hill climbing\
+51:17\
+okay so what we are going to do is simply follow the principle of gradient\
+51:22\
+descent and our aim is to discover a local optimum\
+51:26\
+okay now the\
+51:28\
+most of you are also taking a machine learning course and you may have heard\
+51:31\
+of something called over fitting if i'm not wrong have you heard of overfitting\
+51:37\
+yes right yes sir\
+51:39\
+yes now have you heard of something called regularization\
+51:45\
+yeah regularization now the thing in regularization is that i want to solve\
+51:49\
+for an optimum but i'm actually happy with getting a local opting\
+51:53\
+i don't even want a global optimum why because the global optimum solves\
+51:59\
+this problem too well okay\
+52:03\
+and the thing is because of all the noise and the training set etc etc i\
+52:07\
+don't want to solve the problem too well so i'm actually satisfied with the local\
+52:10\
+optimum so the thing is within the context of\
+52:14\
+optimization as applied to data science machine learning\
+52:17\
+i might actually be happy with the results of gradient design because\
+52:22\
+sometimes i am willing to settle for a local optimum\
+52:27\
+uh because of the danger of warfare a global optimum essentially overfits the\
+52:31\
+data which i don't want okay so the thing is\
+52:34\
+it's not all altogether bad news that we will uh uh\
+52:39\
+be settled with uh we we we have to settle for a local option\
+52:44\
+okay so let's move on\
+52:50\
+let's take this example here just one question so even though we\
+52:54\
+arrive at local uh minimum oh sorry global minima\
+52:59\
+it's like i mean there's still an error in\
+53:01\
+the data right i mean yeah\
+53:04\
+yeah what i meant was that okay see you gave me an optimization problem right\
+53:09\
+you collected data from the field x1 y1 x2 y2 etc etc\
+53:13\
+and now you taught me to find the best loss function here i i found the last\
+53:17\
+function you for you uh wanted me to find the best fitting surface i found an\
+53:21\
+a and b that solves this problem to a global optimum\
+53:24\
+right but then it turns out that your x's and y's are suspect\
+53:29\
+that is you recorded your xs and y's uh with some error\
+53:34\
+then what what is one to say about the\
+53:37\
+optimal solution i calculated because that's that might not actually work well\
+53:41\
+on the test data right because\
+53:44\
+i overweight the training data my global optimum tends to over fit the training\
+53:49\
+data so it's fantastic if the training data\
+53:52\
+was collected with completely zero error right and then i can take that same law\
+53:58\
+and pretend that it will work on the test data as well but if the\
+54:02\
+global optimum was computed on data that is actually\
+54:05\
+suspect then why should i have gone to such a\
+54:08\
+great extent and computed the global optimum i should have i would have\
+54:12\
+probably got a better answer with the local optimum and that might perversely\
+54:16\
+perform better on the test data that's what i mean by regularization and not\
+54:21\
+wanting to actually compute the global optimum\
+54:23\
+uh in the context of machine learning so even though we can't compute it it's\
+54:28\
+okay so basically instead of like fighting\
+54:31\
+over local or global we should try to focus more on the\
+54:35\
+results which are we are getting from the test data right\
+54:39\
+exactly exactly yeah exactly because at the end of the day that is the golden\
+54:43\
+uh test for your\
+54:46\
+uh for your machine learning model right when you deploy it in the field\
+54:50\
+see at the end of the day you don't care about how well it performed on the\
+54:52\
+training date you care about how well it performs in\
+54:55\
+the test data and because your training data already was\
+55:00\
+collected with a fair bit of error in it you do not have to overdo\
+55:05\
+the whole business of fitting the training data really well which is what\
+55:08\
+a global optimum would do right we might be happy with a local\
+55:12\
+optimum it doesn't fit the uh the training data very well but that's okay\
+55:16\
+it happens to perform much better on the test data\
+55:19\
+then a model that uh\
+55:22\
+that solve the the training data to the global optimum\
+55:26\
+okay that can happen and that's why we're\
+55:30\
+we're not overly displeased with a feature of gradient descent which will\
+55:35\
+uh give us only local optimum okay it's not such a big thing in practice\
+55:40\
+i hope this point is now clear thank you sir understood yeah\
+55:45\
+so now i have two figures on left hand side\
+55:48\
+this is a slightly more detailed thing it has two\
+55:52\
+uh variables x1 and x2 and a function f\
+55:55\
+plotted on the z-axis it's a loss function plotted on the z-axis\
+56:01\
+on the z axis and then you have uh x like this and y like this\
+56:08\
+okay and it's a loss function so notice how i'm moving down\
+56:12\
+the this surface is a curved surface loss function and these points here\
+56:17\
+are how i'm moving down okay and now you'll notice that these points\
+56:21\
+start getting bunched much more closely right my learning rate\
+56:26\
+is 0.01 in the first figure and 0.001 in the\
+56:31\
+second figure and so my question to you is\
+56:34\
+why is it that these points are getting bunched much more closely\
+56:39\
+as we get towards the as we get towards the bottom of this\
+56:44\
+curved surface even though the learning rate is only\
+56:46\
+alpha point zero point zero one it's held fixed\
+56:50\
+right so why is it that you see that these points are getting bunched anyone\
+56:54\
+has an answer the spacing point\
+56:58\
+gradient is not decreasing as much right yeah the gradient is getting closer and\
+57:03\
+closer to zero that's what you mean yeah slope is decreasing yeah slope is\
+57:08\
+decreasing exactly\
+57:11\
+so because the slope is decreasing alpha is the same but the alpha times the\
+57:16\
+gradient of f is the gap okay x i plus 1\
+57:20\
+minus x i is alpha times the gradient of\
+57:25\
+x negative alpha basically right so this is getting smaller and smaller\
+57:32\
+you think really so yeah uh so can we say that uh like in this\
+57:39\
+curvy path if we have a steep curve then almost some part of the curve becomes a\
+57:45\
+line so can we take that part as the learning rate because it as in this\
+57:50\
+question itself you asked why these many points are\
+57:53\
+getting you know uh converged at a minimum distance\
+57:58\
+obviously because the uh slope is decreasing at a minus distance the\
+58:03\
+points are getting converged right and two points are there so can we take that\
+58:08\
+rate as the learning rate and we use that one as the learning rate because\
+58:12\
+ultimately hyper parameter itself is uh you know as you said it's an art so can\
+58:17\
+right so now\
+58:18\
+so your question is that you choose the learning rate to be the gradient itself\
+58:22\
+or no i didn't get or the norm of the gradient i didn't understand that part\
+58:25\
+no no not norm of the gradient but a certain part of the part of the curve\
+58:31\
+which would have the similar gradient uh you know value\
+58:35\
+because if we take the steep curve the some part of the the some part of that\
+58:40\
+curve would remain say uh uh straight line and the gradient of that straight\
+58:45\
+line would remain same throughout that uh you know length\
+58:49\
+okay taking that uh you know area or the of\
+58:53\
+that no the thing so okay i see what you mean the thing is that\
+58:58\
+when you are on the steep portion of the curve right you have a large gradient\
+59:02\
+right now the thing is the alpha value i can sort of make it\
+59:06\
+i can take the alpha value to be somewhat large there\
+59:09\
+okay but the thing is if i tie it to the gradient\
+59:13\
+in some way then what will happen is that\
+59:16\
+it it can't be a one size fits all solution because the alpha might be too\
+59:20\
+large see everything depends upon the actual loss landscape\
+59:26\
+right now whatever solution you can think for a particular loss function at\
+59:30\
+a particular value may not translate to another loss function\
+59:34\
+for some other value or in fact the same loss function at a different value\
+59:38\
+okay because locally the behavior of the function is what matters right\
+59:43\
+so now when we are far away from the optimum we say okay look there is a\
+59:47\
+there is plenty of decline that the loss function can still\
+59:51\
+see so why don't we be a little bit\
+59:53\
+aggressive right and choose a learning rate that's\
+59:56\
+large at that point of time that's basically\
+1:00:00\
+all that we say but how large is large so once again we\
+1:00:03\
+don't really have any fixed answer to that question\
+1:00:07\
+but then as we get closer and closer to the optimal point we say that look\
+1:00:12\
+there's no there's no point in our undoing all the hard work we did\
+1:00:16\
+getting to this point right because if i now choose a large\
+1:00:19\
+alpha there is a chance that the new x will be completely unrelated to the old\
+1:00:23\
+x because alpha times the gradient might be still\
+1:00:26\
+fairly large and throws me completely far away\
+1:00:29\
+right so the philosophy is is that if you're far away from the optimum then\
+1:00:34\
+you can risk taking alpha to be large but as\
+1:00:37\
+you get closer and closer to the optimal then take alpha to be small but then\
+1:00:42\
+what is large and small it's context dependent\
+1:00:46\
+okay so sir i have one uh one question one quick question on what you just\
+1:00:51\
+explained right so uh can we\
+1:00:54\
+take alpha dynamically instead of being constant can we take alpha\
+1:00:59\
+we're going to take it dynamically so if you notice that i let alpha be some\
+1:01:03\
+alpha i right i mentioned at that point of time that i was free\
+1:01:07\
+however that equation i think i just skipped it\
+1:01:10\
+let me show it to you uh look at this one x i plus 1 is x i\
+1:01:15\
+minus alpha i times the gradient of f at x i\
+1:01:19\
+so alpha i is free to be different from alpha i minus 1.\
+1:01:25\
+oh okay but then like see the thing is\
+1:01:28\
+you're you're not out of the woods yet okay\
+1:01:32\
+because you've given yourself the freedom to choose an alpha i\
+1:01:36\
+that different from the alpha i minus one but still the question comes what\
+1:01:40\
+should that alpha i be uh no sir but i i i have a different\
+1:01:44\
+quotient on it like if i'm using uh every alpha value for every uh feature\
+1:01:50\
+cell that i have so\
+1:01:52\
+how do i uh decide the learning rate overall because i i don't know it's kind\
+1:01:58\
+of leading to more complicated situations now\
+1:02:00\
+yeah so basically there's no answer to that question so\
+1:02:04\
+you so what all that we can say is that the general\
+1:02:08\
+philosophy alpha should generally decline\
+1:02:12\
+as time goes by as gradient descent progresses if you\
+1:02:16\
+are doing well alpha should generally decay\
+1:02:20\
+okay that's one law okay now the the we'll talk shortly\
+1:02:24\
+about different laws of decay but they're all they're essentially\
+1:02:28\
+heuristics okay you can't actually tell that this will do better than the other\
+1:02:31\
+one that's one way of looking at it another way is to say and we'll talk\
+1:02:35\
+about it shortly is that if we can assume that the\
+1:02:38\
+behavior the loss function in a particular\
+1:02:42\
+direction okay\
+1:02:45\
+is unimodal then unimodal means that there\
+1:02:50\
+is one single unit it's a sort of a u-shaped kind of thing okay\
+1:02:54\
+so if it's like that u-shaped then we can say okay why don't we go and\
+1:02:58\
+choose the particular alpha that's at the bottom of the u and actually compute\
+1:03:03\
+that alpha analytically sometimes we can do that and that's\
+1:03:08\
+called line search which i'm going to come to short\
+1:03:12\
+okay but then you might have loss functions that don't have a unimodal\
+1:03:15\
+behavior then what do you do there well then the\
+1:03:18\
+thing is you try and search for the best alpha\
+1:03:21\
+uh using something called the army rule\
+1:03:24\
+which is out of scope here from for this lecture\
+1:03:28\
+okay but so but basically\
+1:03:31\
+the thing is more advanced solutions essentially have\
+1:03:34\
+to assume something about a loss function\
+1:03:37\
+but the short answer is that for general loss functions really speaking\
+1:03:43\
+that you can't have a one size fits all solution\
+1:03:47\
+okay i hope that answers your question so yeah one question i have is in\
+1:03:53\
+machine learning when you are solving this problem for\
+1:03:56\
+linear regression you are giving a function like theta 0 plus theta 1 x\
+1:04:01\
+plus theta 2 x square and we have one alpha which was given or\
+1:04:05\
+selected so based on we were rotating you know selecting uh actually\
+1:04:10\
+based upon cost function alpha is equal to alpha 0 minus i think\
+1:04:16\
+something and then regularization coefficient so what what is the process\
+1:04:21\
+for doing we were finding a set of theta 0 and again set of theta 1 set of theta\
+1:04:27\
+to like\
+1:04:29\
+so that no so if you have theta naught plus theta 1 x plus theta 2 x squared\
+1:04:33\
+and so on you're trying to fit a polynomial model\
+1:04:37\
+not a linear car it's not no longer a problem of\
+1:04:41\
+of fitting a linear surface yeah but so\
+1:04:46\
+we we had both kind of problem like 1 was theta 0 plus theta 1 x\
+1:04:50\
+theta 2 i think theta 2 x or something for\
+1:04:54\
+coefficient yeah yeah so we were trying to find set of thetas\
+1:05:00\
+actually which were no kind of deriving from the initial value right what is\
+1:05:04\
+that process we were doing this that was gradient descent but that's what we were\
+1:05:08\
+trying to do let's see the thing is if you\
+1:05:12\
+see there's a way in which you can solve uh for this uh for the optimal value of\
+1:05:18\
+gradient descent using a linear algebra technique called least squares\
+1:05:22\
+projection okay so basically what you can do is you\
+1:05:27\
+can set up a bunch of least squares equations\
+1:05:30\
+uh and try to solve for uh\
+1:05:33\
+the uh the solution analytically using\
+1:05:36\
+concepts of linear algebra okay now the problem with that is that\
+1:05:40\
+you will essentially have to do something like this\
+1:05:44\
+like this so\
+1:05:46\
+let me just so you have least squares projection\
+1:05:56\
+so you'll solve for something like a transpose a inverse\
+1:06:00\
+a transpose b okay x bar is this\
+1:06:05\
+is a solution to\
+1:06:10\
+a x bar is equal to b okay now the thing is remember that our\
+1:06:16\
+points were something of this kind x1 y1 x2 y2 x3 y3 and so on so all these\
+1:06:25\
+points x1 y1 go into the matrix a and these this x bar will contain\
+1:06:31\
+theta naught theta 1 theta 2 etc in your language\
+1:06:36\
+the the optimal values so you can actually solve for these\
+1:06:40\
+optimal values using the least squares projection\
+1:06:43\
+technique which we don't actually cover in this course\
+1:06:47\
+but the problem is that this a transpose a inverse\
+1:06:50\
+a transpose a is a huge matrix okay so if you have say a million data\
+1:06:59\
+points that will be a million cross million matrix\
+1:07:03\
+a transpose a inverse can only be computed in million to the\
+1:07:07\
+power three time so it's not a feasible method in\
+1:07:13\
+practice okay but the thing is you can actually\
+1:07:17\
+solve for this optimally if you want to do linear algebra\
+1:07:21\
+following this quest projection but like i said it's not\
+1:07:24\
+it's not feasible so monorail engine makes an interesting\
+1:07:30\
+point uh so when we are near the minima we can reduce alpha value value not to\
+1:07:34\
+oscillate to the other side of the curve exactly\
+1:07:37\
+okay the idea of not choosing a large alpha is that we don't want to overshoot\
+1:07:40\
+the minimum okay look at this so maybe instead of\
+1:07:43\
+just continuously talking in the air so i'll\
+1:07:46\
+think about it this way okay so you're here\
+1:07:50\
+this is where you need to be this is your starting point here's what i can do\
+1:07:53\
+i want to move in the negative direction right i move here\
+1:07:58\
+this is my x naught this is my x one\
+1:08:03\
+right so i am a nightmarish i have chosen a\
+1:08:06\
+nightmarish a scheme x 1 is\
+1:08:11\
+x naught minus alpha times the gradient of f at x naught no problem but alpha is\
+1:08:15\
+inconveniently large from x 1 i go here this is x 2\
+1:08:22\
+then i go over here so you can see that i'm diverging right\
+1:08:27\
+diverging from the true optimum so not only am i oscillating i'm\
+1:08:36\
+actually diverging it's possible\
+1:08:40\
+okay so uh so that's that's a danger okay so the\
+1:08:44\
+choice of alpha is actually quite important\
+1:08:48\
+okay so let me move on okay so let's get to this notion of\
+1:08:54\
+batch gradient descent and so on okay so consider a machine learning\
+1:09:00\
+problem where you have a loss function incurred\
+1:09:04\
+at n data points okay and let the loss function at the eighth data point be l i\
+1:09:09\
+theta so l i theta will be like our e i okay\
+1:09:13\
+which is which i can write it as e i is equal to uh say a i squared which is y i\
+1:09:19\
+minus a x i minus b the whole square\
+1:09:23\
+okay that's l i theta and the total loss will be the sum of all of these l i\
+1:09:28\
+thetas for i going from 1 to n right and theta is your parameter vector\
+1:09:32\
+of interest this is the thing that you are going to optimize\
+1:09:35\
+okay so the standard gradient design\
+1:09:38\
+procedure is a batch optimization method theta i plus 1 will be theta i\
+1:09:43\
+minus alpha i okay\
+1:09:46\
+and here actually you can take the sum to go from j is one to n okay\
+1:09:51\
+i want to show you that this i is not the same as the i that was\
+1:09:55\
+used here because it belongs to the summation it's a different\
+1:09:58\
+index so now the thing is the gradient of l theta\
+1:10:05\
+is simply the sum of all the gradients from j is 1 to j n\
+1:10:12\
+of gradient l j theta okay so the thing is that\
+1:10:19\
+what i want to do is that in batch gradient descent\
+1:10:24\
+i compute the gradient with respect to all of the\
+1:10:28\
+data points you say of course you're going to compute it to all of the data\
+1:10:32\
+points right because otherwise it's not a gradient at\
+1:10:35\
+all you want to compute the gradient of l theta\
+1:10:38\
+and the gradient of l theta happens to be the sum of the gradients of all of\
+1:10:41\
+these li thetas right obviously and then when you want to update you do theta i\
+1:10:45\
+plus 1 is theta i minus alpha i times the gradient of l theta which happens to\
+1:10:48\
+be the sum of all these gradients of the l j theta js right no issues there now\
+1:10:54\
+the thing is this is called batch gradient\
+1:10:57\
+descent right and\
+1:11:00\
+it's actually the correct gradient descent\
+1:11:03\
+by definition but the problem is that each individual gradient step\
+1:11:08\
+requires you to compute the\
+1:11:11\
+sum of all these gradients of l j theta j is\
+1:11:14\
+and j goes from 1 to n and n could be something like 10 to the power 6\
+1:11:18\
+1 million so are you telling me that for every\
+1:11:22\
+time you're going to update the parameter vector\
+1:11:25\
+and you're going to update the parameter vector multiple times\
+1:11:28\
+are you telling me that you're going to compute this gradient using an x very\
+1:11:31\
+expensive procedure where you're going to cycle through all\
+1:11:34\
+of the given data points okay well yeah you have to if you want\
+1:11:38\
+it to be correct but can we do some optimization there can we skimp on the\
+1:11:44\
+on a few data points can we do something approximate\
+1:11:47\
+when i ask questions like this the answer is obvious yes because otherwise\
+1:11:52\
+we can't actually make gradient descent work in practice\
+1:11:55\
+okay uh somebody's asked can we run ols on\
+1:11:58\
+each alpha one and come up with the equation of how alpha should behave\
+1:12:01\
+uh uh yes aditya we can do that and it's called line search you're coming to it\
+1:12:06\
+okay oh so um i i would like to uh you know reframe my obvious question where\
+1:12:12\
+i'm i was talking about the steep line and the steep curve what i meant is that\
+1:12:16\
+can we can we use the uh learning rate directly proportional to the gradient\
+1:12:22\
+also and change it dynamically based on the gradient also making sure that sine\
+1:12:26\
+of the gradient can be used uh to make sure that we are not\
+1:12:30\
+overshooting or we are not oscillating or you know from the curve or missing\
+1:12:36\
+the low local maxima or global maximum now\
+1:12:39\
+so the thing is you can do it no no problem but you can't make sure\
+1:12:44\
+see the thing is that at the end of the day you don't know what the lost\
+1:12:48\
+landscape looks like okay you don't have a picture with you\
+1:12:51\
+oh yeah so it's all trial and error okay okay okay so if you're lucky and\
+1:12:57\
+you choose your alpha in a certain way you might get get to it but aditya in\
+1:13:02\
+the chat box has suggested can we come up with an equation how alpha should\
+1:13:06\
+behave etcetera answer is yes it's called line search and we can only do\
+1:13:10\
+that in certain limited uh situation which i'll talk about okay but both of\
+1:13:14\
+you are essentially trying to say why don't we get rid of this pesky alpha\
+1:13:18\
+problem by doing something in a scientific way the\
+1:13:21\
+answer is all of that is expensive okay\
+1:13:24\
+okay well yeah thank you okay so the thing is can we get a get\
+1:13:31\
+around this whole business of batch gradient descent not compute the\
+1:13:35\
+gradient of the sum of the radians at all of these data points and do\
+1:13:38\
+something clever okay not cleverer but something that is\
+1:13:42\
+more practical from an engineering perspective because we\
+1:13:46\
+at the end of the day right where people who pretend to be mathematicians\
+1:13:50\
+but the real interest is to solve data science problems and make money out\
+1:13:53\
+of them right so i think that i'm sure that's the interest for most of you so\
+1:13:57\
+let's talk about how to make that happen so we have\
+1:14:00\
+something called a mini batch stochastic gradient design\
+1:14:03\
+okay let's look at how to do this so what you do is you say okay look the\
+1:14:07\
+gradient in the previous slide\
+1:14:11\
+is strictly speaking some of these gradient ljs over all j\
+1:14:15\
+j going from 1 to n right but\
+1:14:18\
+suppose we say look why don't you just choose a subset of the indices going\
+1:14:23\
+from 1 to n okay so i'm not going to take the gradient to\
+1:14:27\
+be the sum of all of the gradient l js from j going from 1 to n\
+1:14:32\
+i'm going to take just the sum of the gradient l\
+1:14:35\
+js for the just coming out of this set s okay where s is going to be a small\
+1:14:40\
+subset of one to n okay so the set s of data\
+1:14:46\
+points can be treated as a sample and the sample centric objective function\
+1:14:50\
+can be computed as follows so you take l s theta to be the sum from\
+1:14:56\
+the sum over all i draw drawn from s of l i theta not i going from 1 to n but i\
+1:15:02\
+coming out of s how is s chosen randomly some subset of\
+1:15:06\
+the given set of samples okay so then the update equation\
+1:15:12\
+in case of mini batch stochastic gradient descend\
+1:15:15\
+okay stochastic because we're going to choose this s randomly okay out of it\
+1:15:20\
+out of n okay so theta i plus 1 will be theta i minus alpha i\
+1:15:25\
+some over i\
+1:15:27\
+belonging to s of gradient l i theta i i transpose so the summation is\
+1:15:32\
+now a much smaller summation over s it's a smaller summation\
+1:15:39\
+so sir this is sampling with replacement right\
+1:15:43\
+uh yeah this could be something with replacement yes\
+1:15:47\
+okay okay so so this approach is uh referred to as\
+1:15:52\
+a mini batch stochastic gradient\
+1:15:56\
+okay now the thing is we can actually go become extremely greedy\
+1:16:01\
+and in the extreme case we can only choose one index\
+1:16:06\
+okay chosen at random and the approach is then called\
+1:16:09\
+stochastic gradient descent so now the thing is the following\
+1:16:14\
+see every time we make an update okay\
+1:16:18\
+if we did batch gradient descent and suppose we chose an alpha that was\
+1:16:22\
+reasonably small then we could at least hope to get an\
+1:16:26\
+improvement in the loss function value okay so the loss function value is\
+1:16:30\
+steadily declined provided everything went by right and we chose alpha\
+1:16:35\
+appropriately and the thing here is that we are assured that there exists a value\
+1:16:41\
+of alpha small enough that will make this happen\
+1:16:43\
+we may not have chosen it because of our stupidity but the thing is\
+1:16:47\
+we could have chosen the right value if you wanted to\
+1:16:50\
+but now with mini batch gradient descent and its\
+1:16:55\
+extremely greedy uh variant called stochastic gradient descent\
+1:16:59\
+we are not even computing gradient exactly\
+1:17:03\
+right so the thing is how do we hope to get\
+1:17:07\
+the right answer okay so the answer is\
+1:17:12\
+that in stochastic gradient descent batch gradient descent etc and so on the\
+1:17:16\
+loss function value can actually become worse\
+1:17:21\
+okay whereas in the regular gradient descent\
+1:17:25\
+the loss function value is guaranteed to improve provided\
+1:17:28\
+you chose alpha small enough right here\
+1:17:32\
+even if you choose alpha small enough there is no guarantee\
+1:17:36\
+that the loss function value will actually go down from one iteration\
+1:17:40\
+to the next why use it then\
+1:17:42\
+i mean your it's a it's a stupid thing right i mean if your loss function value\
+1:17:46\
+is getting worse why is it well the answer is that in\
+1:17:51\
+expectation on average\
+1:17:54\
+we can expect to get an improvement so an average the algorithms will converge\
+1:17:59\
+to the local minimum okay so now the key\
+1:18:03\
+idea in stochastic gradient descent is that the gradient of the sample specific\
+1:18:08\
+objective function is an excellent approximation of the true gradient\
+1:18:13\
+okay so basically if you have v i is your\
+1:18:18\
+direction right so at the i point\
+1:18:21\
+okay you may choose v i this is your direction of descent so v i\
+1:18:26\
+is a random vector you may also choose this as your\
+1:18:28\
+direction of descent this has your directional descent it's possible right\
+1:18:32\
+the expected value of this v i is the gradient of f\
+1:18:38\
+at x i expected value\
+1:18:42\
+so if i take the average of all these random vectors it will point in the\
+1:18:47\
+direction of gradient of f of x or negative\
+1:18:50\
+gradient okay because we're moving the direction negatively\
+1:18:54\
+it's only an expectation so\
+1:18:58\
+at any given point i may have chosen the wrong\
+1:19:00\
+via so because what happened was that i picked the particular i\
+1:19:05\
+for the data point that happens not to point the for which the loss function\
+1:19:11\
+okay the gradient of loss function at gradient li doesn't happen to align with\
+1:19:15\
+the true gradient direction it because that's the vagaries of the\
+1:19:19\
+of the uh of the uh training set pointers actually\
+1:19:23\
+chosen it's not in our control but what happens is because we choose this at\
+1:19:27\
+random okay we have expected value of vi\
+1:19:32\
+is uh behaves properly and that allows us to say\
+1:19:36\
+that when the learning rate decreases at a suitable rate\
+1:19:39\
+okay and some mild assumptions can be made\
+1:19:42\
+then stochastic gradient descent almost surely converges to a local minimum so\
+1:19:48\
+you might ask what is the business about almost surely\
+1:19:50\
+it's not a english phrase it's a mathematical phrase it means that it\
+1:19:54\
+converges in probability okay at this point of time i want to take a small\
+1:19:59\
+break and show you something else okay so there is this\
+1:20:03\
+material available on the web okay it's called notes on the\
+1:20:08\
+convergence of gradient descent uh by a person called raghu maker\
+1:20:13\
+and you can actually search for this i will also upload this document uh in the\
+1:20:16\
+teams folder okay\
+1:20:19\
+so i'll annotate it a little bit and upload now\
+1:20:22\
+if you are if you're mathematically inclined i\
+1:20:25\
+recommend that you read this in entirety it's not that difficult\
+1:20:29\
+okay uh it takes a while but it's not that difficult\
+1:20:33\
+so what the what this person is trying to\
+1:20:36\
+do is uh\
+1:20:39\
+is trying to derive conditions on which\
+1:20:44\
+a gradient descent stochastic gradient descent batch gradient etc all converge\
+1:20:49\
+okay so uh\
+1:20:52\
+the particular class of functions that he's concentrating on are called\
+1:20:56\
+convex functions which is something that we alluded to i\
+1:20:59\
+think in the first eight lectures and it also happens to have a lip shape\
+1:21:03\
+property i'm not going to go over it basically it means that the gradient\
+1:21:06\
+doesn't vary too much okay so these are smooth function\
+1:21:10\
+smooth functions okay so i'm going to do a lot of hand\
+1:21:14\
+waving because i don't want to spend too much time on this i want to get to the\
+1:21:18\
+the interesting part of this\
+1:21:22\
+handout okay the interesting part is the analysis of gradient descent and i'm\
+1:21:26\
+going to go into this theorem one okay so i'm just going to read the theorem\
+1:21:30\
+and interpret it for you it is for youtube if you are interested\
+1:21:35\
+uh to read it more carefully so when i am\
+1:21:38\
+talking about convergence what does this mean mathematically this is the question\
+1:21:41\
+i want to focus on so here's the theorem 1.4 okay\
+1:21:45\
+i hope all of you can see this can you all see the i think or is it too small a\
+1:21:50\
+font can you all see it\
+1:21:55\
+i okay fine okay so fine okay so i'll read it out so there's not\
+1:22:00\
+an issue let f be a function that goes from rd to r be an l lip sheet convex\
+1:22:05\
+function okay it's basically smooth function\
+1:22:08\
+okay smooth well-behaved function exact the terminology you have to read\
+1:22:13\
+the preceding theory for this and let x star\
+1:22:17\
+be the argument of x f of x that means is the optimal value it is the value at\
+1:22:22\
+value of x for which f takes the minimum value\
+1:22:25\
+then gradient descent with a step size t is less than equal to 1 by l\
+1:22:31\
+okay so now this 1 by l what is this l l is this lipschitz constant so you are\
+1:22:37\
+saying this is a function f right which has a smooth behavior and\
+1:22:41\
+see this l is figuring out in this equation\
+1:22:45\
+l figures here l is a constant that tells you how the\
+1:22:50\
+gradient varies from point to point gradient f of x minus gradient of f of y\
+1:22:55\
+the norm of the difference will be less than equal to the norm of the difference\
+1:22:59\
+between x and y x minus one okay so and this l is like a\
+1:23:03\
+proportionality constant so what you do is that if you take\
+1:23:07\
+if you happen to choose your loss function you happen to choose your\
+1:23:11\
+learning rate such that is less than equal to 1 by l\
+1:23:14\
+then you can guarantee that after k iterations\
+1:23:18\
+f of x k is where your function is going to be okay because x 0 x 1 x 2 x 3 which\
+1:23:24\
+is the path that gradient descent will take\
+1:23:26\
+f of x k will be less than equal to some f of x star which is the actual optimal\
+1:23:31\
+plus look at this this guy on the right hand\
+1:23:34\
+side it is the norm of x naught minus x star\
+1:23:37\
+the whole squared divided by 2 t k okay so i want to interpret this thing for\
+1:23:42\
+you x naught is your starting point\
+1:23:45\
+okay x star is where you need to get\
+1:23:49\
+x naught minus x star the whole squared is some constant okay this is a norm\
+1:23:53\
+it's a vector difference between x naught minus x star\
+1:23:56\
+and it's it's a norm of it so it's a length of some vector okay\
+1:24:01\
+and then you're dividing it by 2 t k so this means as k gets to infinity what\
+1:24:06\
+happens this term vanishes this term tends to 0\
+1:24:11\
+as k goes to infinity okay so this tells you that as you\
+1:24:18\
+as you let k get larger and larger then f of x k will tend to f of x star\
+1:24:25\
+for a well behaved f that is lipschitz convex\
+1:24:29\
+okay which most loss functions that that are\
+1:24:33\
+uh that we will deal with in uh\
+1:24:36\
+in data science like least square regression loss function the cross\
+1:24:39\
+entropy one all of those are lip shades convex functions okay\
+1:24:43\
+so they will have this behavior so you the thing is that\
+1:24:47\
+x naught is your uh\
+1:24:50\
+is your uh is your starting point\
+1:24:55\
+and your x star is where you have to end up with right and you have 2 t k if you\
+1:25:00\
+choose t to be less than equal to 1 over l then you have this guarantee okay that\
+1:25:04\
+as k goes to infinity you will converge to\
+1:25:08\
+f of x star so what it means is that if you take these many iterations\
+1:25:14\
+l times the norm of x naught minus x star the whole square divided by epsilon\
+1:25:19\
+iterations then it will it will suffice to find an epsilon approximate optimal\
+1:25:24\
+value for x okay so that's\
+1:25:27\
+uh if i put uh k to be equal to this then you get the f\
+1:25:30\
+of x k will be within some distance of f of x okay the reason i\
+1:25:35\
+brought this up okay was to not\
+1:25:38\
+point you to theorem 1.4 which is what happens for regular gradient\
+1:25:42\
+descent but i wanted to look at its cousin which is stochastic gradient\
+1:25:46\
+descent and as usual i'm going to just show you the theorem and let you read it\
+1:25:50\
+if you are interested okay i recommend that you read it but\
+1:25:55\
+this is it so i'm going to highlight\
+1:25:58\
+the difference in the behavior of regular gradient descent\
+1:26:03\
+and stochastic gradient descent now let f\
+1:26:06\
+again be and l lipschitz convex function the same\
+1:26:11\
+kind that was there in theory 1.4 and let x star b are optimal\
+1:26:16\
+consider an instance of stochastic gradient descent where the estimators vi\
+1:26:20\
+have bounded variance that is for all i greater than equal to 0 the variance of\
+1:26:26\
+b i will be less than equal to some sigma squared\
+1:26:29\
+okay so basically my vectors are vi right\
+1:26:32\
+at each point the expected value of this vi\
+1:26:36\
+is going to be the gradient of f of x at i\
+1:26:41\
+but the variance of v i okay is going to be equal to less than\
+1:26:46\
+equal to some sigma square now you might ask what is the variance\
+1:26:49\
+of a random vector that's defined\
+1:26:52\
+uh here in the in the previous\
+1:26:56\
+development so he defines what the variance of vi is\
+1:27:00\
+i think it's done somewhere let me just take it\
+1:27:03\
+show it to you so you might want to read it\
+1:27:06\
+just give me a second yeah this is the variance of v\
+1:27:12\
+okay so v is a vector\
+1:27:14\
+and the variance of v is defined just like how a standard\
+1:27:19\
+uh variance is defined for an individual variable except that you have to do it\
+1:27:22\
+component by complement because it's a vector so i'm skimming over all of those\
+1:27:25\
+details up to you if you want to read it the reason i brought up this result\
+1:27:29\
+is to show you what happens when you go away from\
+1:27:33\
+evaluating the gradient exactly to working with it\
+1:27:37\
+randomly such that the expected\
+1:27:40\
+improvement direction is the true gradient but not in general so if i take\
+1:27:44\
+a particular vi at the eighth data point i'm not moving the directional negative\
+1:27:48\
+gradient if i take the average\
+1:27:52\
+okay then yes expected value of it will be like the\
+1:27:56\
+gradient but not at an individual point so then then the\
+1:28:01\
+uh the convergence becomes weaker as you would expect\
+1:28:05\
+but how does it become weaker look at these terms right the first couple of\
+1:28:09\
+terms are exactly as what was there in the previous theorem\
+1:28:13\
+now on the left hand side i am not talking about f of x k\
+1:28:18\
+i am talking about the expected value of some f of x k bar\
+1:28:24\
+okay and on the right hand side i have some t\
+1:28:27\
+sigma squared by 2. so what i'm saying is\
+1:28:33\
+that on the left hand side i can't tell you what will happen to f of x k\
+1:28:38\
+okay because f of x k depends upon a particular\
+1:28:42\
+you know pathway through the gradient descent and that it's a random thing i\
+1:28:46\
+can't really tell you about f of x k it might\
+1:28:49\
+be pretty good with respect to f of x star it might not be\
+1:28:54\
+what is well behaved is not f of x k the value of the function after\
+1:28:59\
+k iterations what is well behaved is that is the expected value of f of x k\
+1:29:04\
+bar what is the f of x k bar is f of\
+1:29:08\
+x 1 plus x 2 plus all the way up to x k divided by k\
+1:29:15\
+so if i talk about the average of the last k iterations\
+1:29:21\
+okay so x 1 x 2 x k are the last k values of x right\
+1:29:28\
+x 1 plus x 2 plus x k by k is the average of them\
+1:29:32\
+i can say something about the average behavior of the function\
+1:29:37\
+over the last k iterations that is converging\
+1:29:42\
+okay so the thing is because i'm i'm\
+1:29:48\
+choosing a weaker version of gradient descent where i'm actually not moving\
+1:29:51\
+the direction of the negative gradient okay i'm moving in an expected sort of\
+1:29:55\
+way in an average way i pay a price\
+1:29:58\
+the price is a weaker kind of convergence\
+1:30:02\
+okay so the convergence requires you to factor in the variance of the\
+1:30:08\
+of the of the vector v i so variance means that it could be quite\
+1:30:12\
+noisy right so the larger the variance\
+1:30:16\
+means that sometimes vi could be much more than the uh\
+1:30:21\
+then the gradient sometimes much less i mean\
+1:30:23\
+it has a larger variance so you expect the variance value to figure on the\
+1:30:28\
+right hand side t times squared by two right so the the so i request you to\
+1:30:35\
+well if you're if you're interested only but not otherwise to actually read this\
+1:30:38\
+and try to get as much as you can out of it so\
+1:30:41\
+this almost surely business basically means it converges in a probabilistic\
+1:30:46\
+sense okay where uh\
+1:30:50\
+you are actually gaining something because your gradient can be computed\
+1:30:53\
+much quicker per update your gradient doesn't require you to look at all the\
+1:30:57\
+data points a huge advantage but the disadvantage is that your\
+1:31:02\
+estimates are going to be very noisy your loss function actually go up from\
+1:31:06\
+iteration to iteration you should not be surprised but then you\
+1:31:11\
+look at the average and over a long a long time then you can expect that it\
+1:31:16\
+will actually come down okay so on that note then let's actually\
+1:31:19\
+examine the behavior of stochastic gradient and\
+1:31:22\
+so on in a uh in a sort of uh experimental sense so i present you a\
+1:31:27\
+figure okay\
+1:31:29\
+the loss of the loss function versus the number of updates\
+1:31:33\
+so update is when theta i goes to theta i plus 1 okay\
+1:31:37\
+so each time i compute the gradient i\
+1:31:40\
+i update the function now in batch gradient descent which is the\
+1:31:44\
+figure on the extreme left you see that there is a smooth decay\
+1:31:48\
+okay it's a smooth decay\
+1:31:53\
+of loss function so what happens is that this decay is\
+1:31:58\
+expected because what you're doing is that you're\
+1:32:01\
+traveling over all the training examples\
+1:32:05\
+computing the gradient as gradient of l1 plus gradient of l2 plus gradient of ln\
+1:32:10\
+computing the total gradient and moving in the directional negative\
+1:32:14\
+gradient so the thing is we have something called the concept of an epoch\
+1:32:18\
+an epoch means you're looking at the entire set of training examples\
+1:32:23\
+in one shot right and then updating only at the end\
+1:32:26\
+so in batch gradient descent if you go through\
+1:32:30\
+the training data set five times you'll make five updates once every time you go\
+1:32:35\
+through the training example the good news is that your loss function\
+1:32:40\
+is going down smoothly as you would expect now look at mini batch gradient\
+1:32:43\
+design where\
+1:32:47\
+if you look at the center one the mini batch gradient descent\
+1:32:50\
+every update is done using a batch of hundred samples\
+1:32:53\
+so basically the gradient is computed approximately by looking at only 100\
+1:32:57\
+samples we make an update so we make a a noisy update\
+1:33:01\
+and so therefore you can see that there's a general\
+1:33:04\
+declining trend in the loss function but there's a lot\
+1:33:07\
+of noise because of the stochastic nature of the\
+1:33:12\
+gradient computation now when i go to the the guy on the right hand side\
+1:33:17\
+right then the noise is actually much more\
+1:33:21\
+okay it's called stochastic gradient descent where the size of that of s is\
+1:33:25\
+actually one so i picked up only one example every update is based only on a\
+1:33:30\
+single sample so then the thing is it's very very\
+1:33:33\
+lossy okay but then you it doesn't look like\
+1:33:37\
+that in this figure but actually there is a decay of the\
+1:33:40\
+loss function if you take the average term so if i go to the next diagram\
+1:33:45\
+you'll see that the loss update is done once for every\
+1:33:48\
+sample in sgd and i if i show you the loss function\
+1:33:51\
+after every update i get a very noisy estimate but if i study how the loss\
+1:33:57\
+function is behaving after every 100 updates so i take 100 updates i average\
+1:34:01\
+the loss function over the first 100 and over hundred to two hundred two hundred\
+1:34:05\
+to three hundred and so on and then i can see some kind of a declining trend\
+1:34:10\
+okay even then some of you might say that uh that's not really the case but\
+1:34:15\
+actually there is something like that i see a question here so the takeaway is\
+1:34:19\
+that for faster convergence we sacrifice a bit of performance yes\
+1:34:23\
+okay so see the question the question is this\
+1:34:27\
+okay in\
+1:34:31\
+the difference between the world of optimization and the world of\
+1:34:34\
+optimization as applied to machine learning\
+1:34:37\
+is that in optimization as applied to machine learning\
+1:34:40\
+we don't care about the true optimized true optimum because of regular\
+1:34:44\
+regularization overfitting etc etc okay we are prepared\
+1:34:49\
+to work with a noisy world now\
+1:34:52\
+if that is the case then why do you want to do batch gradient design because it's\
+1:34:56\
+expensive right\
+1:34:59\
+and uh uh\
+1:35:02\
+so when you look at it loss function as uh taken with to get with respect to the\
+1:35:07\
+number of updates then maybe\
+1:35:10\
+stochastic gradient descent is actually competitive with batch gradient design\
+1:35:15\
+okay if you when all is said and done i mean\
+1:35:19\
+and when you consider that you don't actually want the true optimum so\
+1:35:24\
+the focus always is on doing using computational resources\
+1:35:30\
+efficiently right which means that\
+1:35:33\
+you try to get the best bank okay\
+1:35:38\
+so so so that's why we look at things like stochastic gradient descent so\
+1:35:42\
+while running regression in one go instead of gradient descent method theta\
+1:35:45\
+that are required to uphold with the cos markov theorem is in case for gradient\
+1:35:49\
+descent as well with yes we need to treat the\
+1:35:52\
+violation of assumptions in gradient design so i'm not very sure what you\
+1:35:56\
+mean by the ghost ghost marco method aditya what does this actually mean\
+1:36:08\
+may not be online can we get a few theoretical problems to\
+1:36:11\
+solve for each topic see that's a question of the webinar\
+1:36:15\
+okay that's what the webinar is for\
+1:36:18\
+so we will solve theoretical problems and so on\
+1:36:22\
+but the thing is uh you want it you can't expect to get problems that are\
+1:36:26\
+straightforward in the exam where you can plug into some formula\
+1:36:30\
+okay so uh that's here\
+1:36:35\
+okay so let me move on and\
+1:36:44\
+okay now we get to the nitty-gritty is to\
+1:36:47\
+learning a learning rate algorithm how do we decide it so how are we to\
+1:36:51\
+decide the value of the learning rate what happens if we choose a large value\
+1:36:56\
+of the learning rate and let it be constant so in this case the algorithm\
+1:37:00\
+might come close to the optimal answer in the very first iteration but it will\
+1:37:03\
+then oscillate around the optimal point i think we've spent enough time about\
+1:37:07\
+this so that we can just skip this issue right now what happens if we\
+1:37:11\
+choose a small value for the learning rate and let it be a constant\
+1:37:15\
+in this case it will take a very long time for the algorithm to converge to\
+1:37:18\
+the optimal point i think both of these points are have already been explained\
+1:37:21\
+in sufficient detail so how do we choose\
+1:37:27\
+the decay along so we choose a variable learning rate\
+1:37:31\
+large initially but decaying with time okay this will enable the algorithm to\
+1:37:36\
+make large strides towards the optimal point and then slowly converge as you've\
+1:37:40\
+seen also in a number of diagrams that we looked at before so the idea is that\
+1:37:46\
+you make large strides towards the optimal point and then slowly converge\
+1:37:50\
+so you make this alpha t dependent on time which is a discrete\
+1:37:54\
+thing here because you are going to basically make it dependent on the\
+1:37:57\
+iteration number okay so what you have is a couple of\
+1:38:01\
+laws we have exponential decay where you choose\
+1:38:05\
+alpha t as alpha naught e to the minus kt\
+1:38:08\
+okay for k which is yet another hyper parameter\
+1:38:12\
+so one hyper parameter is being defined in terms of another\
+1:38:17\
+hyperparameter so it's called exponential decay and\
+1:38:20\
+then you can also choose something called inverse decay alpha t is alpha\
+1:38:24\
+naught divided by 1 plus kt so this k will control the rate of decay\
+1:38:29\
+the difference between these two laws is the manner in which the decay will\
+1:38:32\
+actually happen okay so there's a difference in the way\
+1:38:35\
+in which the decay will actually happen this will be\
+1:38:38\
+exponential decay and this should be inverse decay\
+1:38:41\
+okay so that the rate of decay will be different if you follow different laws\
+1:38:46\
+which law should we follow your guess is as good as mine yes now\
+1:38:49\
+really speaking there is no answer to that\
+1:38:52\
+so that's why you have multiple laws whatever works well in different\
+1:38:55\
+situations another kind of decay function is a step\
+1:38:58\
+decay which is something like this okay you keep the decay\
+1:39:03\
+or the algae rate constant for a number of iterations and then\
+1:39:09\
+reduce it in steps okay so we reduce the learning rate by a constant factor every\
+1:39:14\
+few steps of gradient decide like i said there are these are\
+1:39:17\
+different laws and there is no one rule for which one will work best in\
+1:39:21\
+what context okay now we come to something that one\
+1:39:26\
+or a couple of you alluded to before okay which is can we find an optimal\
+1:39:30\
+learning rate using a concept of line search so what\
+1:39:34\
+line search does is that it uses the optimum step size\
+1:39:38\
+directly in order to provide the best improvement\
+1:39:42\
+okay it's rarely used in vanilla gradient descent because of its\
+1:39:45\
+computational expense the act of computing the best possible alpha is\
+1:39:50\
+quite computationally intensive\
+1:39:53\
+okay so although if i use it then i might have to\
+1:39:57\
+i might get to the optimum in only a few steps\
+1:40:01\
+but then i have a few steps versus a large computational\
+1:40:06\
+expense per step so it might or might not be worthwhile when everything is\
+1:40:10\
+taken together okay so it's sometimes helpful in some\
+1:40:15\
+specialized variations of gradient descent\
+1:40:18\
+so let l theta be the function being optimized and let dt be minus gradient\
+1:40:23\
+of l theta the negative gradient of the loss function and so the update\
+1:40:29\
+step is theta t plus 1 is theta t plus alpha t times dt okay\
+1:40:35\
+so in line search the learning rate alpha t is chosen\
+1:40:39\
+at the t step so as to minimize the value of the objective function at theta\
+1:40:44\
+t plus one so\
+1:40:46\
+we are actually computing theta t alpha t analytical alpha t is the\
+1:40:52\
+minimum over all alphas which at the time step t is the best\
+1:40:57\
+alpha we know over l theta t plus alpha d d t\
+1:41:02\
+what is the alpha that minimizes this so that means we are at theta t\
+1:41:06\
+we choose to go in a particular direction\
+1:41:09\
+okay and we say okay look if i were to plot the behavior of l\
+1:41:14\
+with respect to theta t plus alpha dt okay remember dt is a fixed direction\
+1:41:19\
+it's a negative gradient right so if it so happens that our loss\
+1:41:23\
+function behaves like this okay this is unimodal\
+1:41:29\
+there is just one point at which so we can actually find\
+1:41:33\
+this point and say yeah why don't you just directly\
+1:41:36\
+go and let alpha be that particular point\
+1:41:41\
+okay so we're hoping that the loss function behaves in a unimodal\
+1:41:46\
+uh fashion with respect to the\
+1:41:50\
+dt uh direction\
+1:41:53\
+if it doesn't then we're a little bit in trouble so\
+1:41:56\
+there are ways to handle that as well but we are not going to cover that in\
+1:41:59\
+this lecture\
+1:42:01\
+okay so let's look at what can we do if the loss function can behave in a\
+1:42:04\
+unimodal way or if we can assume that the loss function is nearly unimodal in\
+1:42:09\
+behavior if i take a suitable approximation or\
+1:42:12\
+loss function and that turns out to be unimodal let's work with that okay\
+1:42:15\
+that's uh what we are looking at so question is what is\
+1:42:19\
+uh vanilla gd vanilla gt is a gd without any friends\
+1:42:23\
+okay so a gd where\
+1:42:27\
+you hope to do it quickly so you you let alpha t follow some sort\
+1:42:32\
+of decay law like alpha naught e to the minus k t okay but\
+1:42:37\
+if you don't want a vanilla gradient descend and you say okay i am willing to\
+1:42:41\
+do a more complicated gradient descent where i'm willing to spend some extra\
+1:42:46\
+time trying to compute the best alpha at a given point\
+1:42:50\
+then i can do line search so i don't do it in all cases\
+1:42:54\
+okay i do it where i can hope that i can\
+1:42:57\
+afford to spend some time\
+1:43:01\
+at a given step\
+1:43:03\
+trying to find the best possible alpha okay let's look at an example of line\
+1:43:07\
+search suppose your loss function\
+1:43:11\
+is of this form okay\
+1:43:14\
+l of x 1 comma x 2 is x 1 squared plus 3 x 2 squared ok it's function of two\
+1:43:18\
+variables so at iteration i if i take the gradient\
+1:43:22\
+of l x 1 x 2 you can easily see it's 2x1 comma 6x2 okay no problem\
+1:43:28\
+now if i take\
+1:43:31\
+the descent direction so now if i want to look of l at x minus alpha times\
+1:43:37\
+2 x 1 6 x 2\
+1:43:41\
+right then it will be l of x 1 minus\
+1:43:45\
+2 alpha x 1 and x 2 minus\
+1:43:50\
+6 alpha x 2 right so if i move in that in so i'm\
+1:43:55\
+here at a particular point i'm moving in the direction 2 x 1\
+1:43:59\
+6 x 2 so x is equal to x 1 x 2 the point at\
+1:44:04\
+which i am currently located i am moving in the direction of\
+1:44:08\
+2 x 1 6 x 2 so my loss function is going to be become a function only of alpha\
+1:44:12\
+right because x 1 and x 2 are fixed\
+1:44:16\
+i am moving in the direction of 2 x 1 6 x 2 from the point x 1 x 2 so\
+1:44:22\
+i'm my x 1 is going to vary at x 1 minus 2\
+1:44:25\
+alpha x 1 x 2 minus 6 alpha x 2 is a function only in alpha\
+1:44:36\
+right so when i plug it in then i put x1 minus 2 alpha x1\
+1:44:42\
+x1 minus 2 alpha x1 the whole squared plus\
+1:44:47\
+3 times x 2 minus 6\
+1:44:51\
+alpha x 2 the whole squared this is the loss\
+1:44:55\
+function evaluated at x 1 minus 2 alpha x 1\
+1:45:01\
+comma x2 minus\
+1:45:05\
+6 alpha x2 okay\
+1:45:09\
+this is it so when i simplify i can see now that i can take out this 1 minus 2\
+1:45:13\
+alpha the whole squared and 3 1 minus 6 alpha the whole square so now the thing\
+1:45:17\
+is h of alpha is now the loss function when\
+1:45:21\
+i go in a particular direction has become only a function in one\
+1:45:26\
+variable alpha because i'm telling you i'm moving only in this direction the\
+1:45:29\
+only thing that changes is alpha you're moving along\
+1:45:33\
+the uh so it's like you're moving along the x y plane\
+1:45:38\
+you had a plane here so let's this is your x y\
+1:45:43\
+plane this is my point x 1 comma let's call this x 1 x 2 ok to keep the\
+1:45:50\
+notation the same let's call this x 1\
+1:45:54\
+x 2 and let me call this\
+1:46:00\
+this point as\
+1:46:02\
+say some p q okay so when i move in this direction\
+1:46:06\
+the only thing that changes is the amount of movement in this\
+1:46:10\
+direction and so the only variable is the amount\
+1:46:13\
+of movement that's the alpha\
+1:46:16\
+so then this will become some p minus the new point will be p minus some alpha\
+1:46:21\
+p and q minus some alpha q that will ensure that i'm moving\
+1:46:27\
+in this direction so that's exactly what i'm doing so the only variable is this\
+1:46:30\
+alpha so that means i can try to find the optimal alpha by\
+1:46:34\
+taking the derivative of h with respect to alpha and setting it to 0.\
+1:46:39\
+okay now this is a unimodal loss function the behavior of the loss\
+1:46:44\
+function in a particular direction uh varies only with alpha and that\
+1:46:48\
+happens to have a unimodal behavior which is a u-shaped behavior\
+1:46:52\
+so i can actually take alpha set it to 0 and solve for alpha analytically so\
+1:46:56\
+alpha is this so the thing is this is my optimal step size\
+1:47:02\
+so a couple of you are asking can i not can i find out\
+1:47:06\
+what optimal step size uh uh i have to use etc the answer is yes\
+1:47:12\
+in some limited context so for example here we have a unimodal loss function so\
+1:47:17\
+it behaves in the u shape in a particular direction so i can find\
+1:47:20\
+where that u shape actually attains its minimum\
+1:47:24\
+analytically in this fashion so sometimes it is worth it to actually do\
+1:47:28\
+this kind of technique use this alpha rather than an alpha that is coming out\
+1:47:32\
+of some decay law which is has nothing to do with x1 squared plus 9x2 squared\
+1:47:36\
+and so on okay so\
+1:47:39\
+this is what is meant by line search so in line search algorithms how do we\
+1:47:45\
+perform the optimization minimize of alpha where health\
+1:47:50\
+which is basically min over l theta t plus alpha dt over alpha so an important\
+1:47:55\
+property that we exploit of typical line third settings\
+1:47:58\
+is that the objective function is a unimodal function of alpha it\
+1:48:01\
+doesn't look like this this is not h of alpha if h of alpha is\
+1:48:07\
+like this okay\
+1:48:09\
+with respect to alpha this is not unimodal\
+1:48:16\
+okay because there's several u-shaped kind of things like you shouldn't have\
+1:48:19\
+many twist centers so unimodal basically means this\
+1:48:24\
+okay u-shaped u-shape\
+1:48:30\
+so this is especially true okay if we do not use the original\
+1:48:34\
+objective function the original objective function may be a complex\
+1:48:36\
+function but we may choose to take a quadratic or a convex approximation of\
+1:48:40\
+it precisely in order to be able to use\
+1:48:43\
+line search okay so we say that if i use a line\
+1:48:47\
+search on an approximate objective function it\
+1:48:50\
+might still be good enough uh uh when i apply to the original\
+1:48:54\
+objective function there's not so much error going on\
+1:48:56\
+okay but once again it's a touch and go kind of thing depends upon the context\
+1:49:00\
+so the first step in the optimization okay suppose we were to say that we were\
+1:49:05\
+going to do a\
+1:49:08\
+a unimodal function is let's assume that the optimum\
+1:49:12\
+the loss function is unimodal but then let\
+1:49:15\
+us say that we are not so lucky that it has a nice form like this\
+1:49:19\
+where we could solve for h dash alpha theta 0 and solve for alpha analytically\
+1:49:23\
+so the loss function is unimodal\
+1:49:27\
+but we can't expect to solve for that point of unimodality\
+1:49:32\
+analytically okay so you still have to search for that\
+1:49:36\
+uh in a in a systematic way but because it's\
+1:49:40\
+unimodal we have some nice algorithms to handle this particular case so the first\
+1:49:46\
+step in the optimization to find the best possible alpha is to find a range 0\
+1:49:51\
+to alpha max in which to perform the search for the optimal alpha\
+1:49:55\
+so we say okay look let us try to take alpha as something\
+1:50:00\
+then evaluate the loss function at the start point and end point of the\
+1:50:03\
+interval okay for a particular value of alpha and i say something okay no no the\
+1:50:08\
+loss function is not changing much so i can sort of then\
+1:50:12\
+double alpha okay so i take geometrically increasing values of alpha\
+1:50:17\
+okay and like i somehow narrow down and say okay look\
+1:50:20\
+the best alpha lies between some 0 and alpha max so i'm asking you to find out\
+1:50:26\
+an alpha max somehow okay so whatever technique you have in\
+1:50:29\
+mind that tells you okay look i don't have to\
+1:50:33\
+search outside this range also i will have to lie between the 0 and alpha 9\
+1:50:37\
+now where in this range should i uh focus on let me look at a question\
+1:50:42\
+here unimodal equally distributed at center for left no it's not unimodal not\
+1:50:46\
+equally distributed okay it is just a function that looks like a\
+1:50:51\
+u so there is one particular point at which the gradient vanishes\
+1:50:57\
+not multiple points okay it's not like the function comes\
+1:51:02\
+down then goes up again then comes down again and so on so not wavy okay like a\
+1:51:06\
+u shape so there's only one particular point uh\
+1:51:12\
+where it it vanishes so\
+1:51:17\
+we can actually use an algorithm that's quite familiar to\
+1:51:21\
+all of us which is called binary search okay what you do\
+1:51:25\
+is you initialize the search interval between 0 to alpha math\
+1:51:29\
+then you evaluate the objective function at the midpoint a plus b by 2 and next\
+1:51:35\
+to the midpoint a plus b plus epsilon by 2\
+1:51:38\
+okay midpoint and next point then you find out whether the function\
+1:51:42\
+is increasing or decreasing at a plus b by 2. how would you do that well you\
+1:51:47\
+take f of a plus b plus epsilon by 2\
+1:51:53\
+minus f at a plus b by 2\
+1:51:57\
+and divide by epsilon okay and then it will look it looks\
+1:52:02\
+something like this okay what's the logic behind\
+1:52:05\
+let me set the page second i think there's some\
+1:52:14\
+there's some cumin seeds\
+1:52:23\
+i think there's no problem with this now give me a second this one\
+1:52:54\
+slide can you still hear me\
+1:53:19\
+okay so what i'll do is uh i think there is\
+1:53:48\
+there's some noise when the things usually become better\
+1:54:14\
+and there's one i think there's some issues going on\
+1:54:17\
+but i'm not sure what it is let me see if i can actually use it here\
+1:54:26\
+with the task manager so it's something like this\
+1:54:33\
+so assume that so okay let me just raise this\
+1:54:41\
+go over here so let's assume that\
+1:54:47\
+this is a and this is b\
+1:54:51\
+and this is a plus b by 2 okay so what i do is if i find that the\
+1:54:56\
+function is decreasing at this point then i say that look\
+1:54:59\
+it's a function is known to be unimodal the function is decreasing at this point\
+1:55:03\
+so i have to limit my search in the right half integral\
+1:55:08\
+okay now if i take the right half interval now i find the function is\
+1:55:12\
+increasing at the midpoint that means i have overshot the minimum\
+1:55:15\
+so i have either undershot or overshot the minimum so just as in the regular\
+1:55:19\
+binary search philosophy i can slowly narrow down to get to the point where\
+1:55:26\
+the the function is minimum mistake this is the logic behind\
+1:55:30\
+find research i hope this is clear okay am i still audible and uh was it okay or\
+1:55:35\
+do i have to actually go back to one note and try it again\
+1:55:40\
+so it's it's okay now it's okay some issue\
+1:55:44\
+there so now there's another algorithm so you say okay look if i have binary\
+1:55:48\
+search and it works for unimodal function\
+1:55:51\
+why do i need an algorithm called golden section search\
+1:55:55\
+or to do the same thing well the answer is that binary search\
+1:56:00\
+is a very good algorithm for reducing the number of reducing the\
+1:56:04\
+search space okay so search space reduces in half\
+1:56:09\
+okay in binary search search space reduces enough each time\
+1:56:23\
+and really speaking that's a fantastic thing because\
+1:56:27\
+you only need a logarithmic number of steps in order in order to get uh\
+1:56:32\
+a very good approximation of the of the two step side\
+1:56:37\
+but the problem is that you have to do a couple of function evaluations each\
+1:56:41\
+time right so is there a way\
+1:56:46\
+in which one can trade out the number of function evaluations\
+1:56:51\
+okay reduce the number of function\
+1:56:54\
+evaluations possibly at the expense of not being able to reduce the\
+1:57:00\
+uh the uh the\
+1:57:04\
+the search space so aggressively as binary search\
+1:57:08\
+okay that's the the that's the trade-off we're talking\
+1:57:11\
+about so it's talking about third space versus number of function evaluations\
+1:57:22\
+function evaluation so let's look at the philosophy of golden sect sensor so once\
+1:57:27\
+again you initialize the search to between 0 and alpha max same as\
+1:57:31\
+before then here is the idea okay let me try to\
+1:57:34\
+use one note again hopefully it'll it will\
+1:57:40\
+start working this time okay so let me draw this here again\
+1:57:45\
+so here you you evaluate in four places to start with a\
+1:57:49\
+and two points m one m two and some b and now\
+1:57:54\
+suppose your loss function is unimodal and it has this kind of behavior\
+1:57:59\
+okay so here we evaluate at a\
+1:58:02\
+then we evaluate at m one then we evaluate at m2\
+1:58:08\
+okay and then we evaluate at b okay and suppose\
+1:58:12\
+uh we evaluate at a and the function is something like this okay so\
+1:58:17\
+let me make a somewhere here okay a here and move this a little bit\
+1:58:26\
+because i want to illustrate a point\
+1:58:30\
+this is a okay and this is how my loss function\
+1:58:32\
+looks so i it's the case that f a is less than equal to\
+1:58:37\
+f of m one okay so f of f a is actually\
+1:58:44\
+i'm going to take about 10 minutes more okay just because we had all these\
+1:58:48\
+disruptions minimize is a minimum of f a comma f of m one\
+1:58:55\
+f of m two and f of b\
+1:58:58\
+here let's say f of a is the minimum of this guy okay as in\
+1:59:02\
+now the thing is we know that since the loss function has been evaluated at\
+1:59:06\
+four points and f of a is the smallest value okay so we know\
+1:59:12\
+that the loss function is going to be minimized in the interval a to m1\
+1:59:17\
+because it's unimodal loss function\
+1:59:30\
+loss function is unimodal\
+1:59:35\
+right and\
+1:59:38\
+is minimized\
+1:59:43\
+at f of a when compared to these four points when\
+1:59:49\
+compared to not overall but only these four points\
+1:59:53\
+if a fm1\
+1:59:57\
+fm2 and fb\
+2:00:02\
+okay then what we can say is that because the loss function\
+2:00:07\
+for these four points minimized at a the actual minimum will occur in the\
+2:00:11\
+interval a to m one so what we can do is that we can discard\
+2:00:15\
+this interval in so in the next search we can discard\
+2:00:19\
+the integral okay\
+2:00:23\
+m1 to b now it may so happen\
+2:00:26\
+that let me try to add a page now that the loss function may have this\
+2:00:31\
+kind of behavior okay so so basically the loss function\
+2:00:36\
+is here you have m1 then\
+2:00:40\
+here you have m2 here you have a\
+2:00:45\
+and here you have b right so now\
+2:00:48\
+m2 is the point at which the loss function is minimized over these four\
+2:00:52\
+evaluated points right in that point we say look if we\
+2:00:56\
+record the loss function as being minimized at a particular point\
+2:01:02\
+we only need to focus on the adjacent intervals to discover the true minimum\
+2:01:06\
+because of unimodality focus on adjacent intervals\
+2:01:17\
+to discover the true minimum discover\
+2:01:24\
+the true minimum because of unimodality\
+2:01:44\
+okay so then what that means is that we our our search space will be\
+2:01:51\
+m1 to b we can get rid of this interval a to m one\
+2:01:54\
+now if we if m one had been the minimum point then we would have got\
+2:01:58\
+been able to get rid of m two b okay so the thing is each time\
+2:02:04\
+we will be able to get rid of some part of the\
+2:02:08\
+search space it's not as straightforward as the\
+2:02:14\
+binary search thing in which we always get a rough reduction\
+2:02:17\
+in the loss function in the search space right because sometimes you may lose\
+2:02:22\
+quite a bit sometimes you may not right depending on where the minimum actually\
+2:02:26\
+occurred but what what is important is that the\
+2:02:30\
+number of function evaluations can be smaller in principle because what we can\
+2:02:34\
+do is that\
+2:02:36\
+each interval needs four points right now some of the points that were\
+2:02:41\
+already there can be reused now okay so let me read through this slide\
+2:02:45\
+and tell you how it actually works so that\
+2:02:47\
+we can uh we can get the inner workings of this\
+2:02:51\
+algorithm so what we do is we use the fact that for any mid samples m1 comma\
+2:02:55\
+m2 in the region a to b where a is less than m1 is less than m2 is less than b\
+2:03:00\
+at least one of the intervals either am1 or m2b can be dropped\
+2:03:05\
+okay that is the two corner intervals am1 is like this a\
+2:03:09\
+m1 m2 and b we can drop this guy or drop\
+2:03:13\
+this guy sometimes we can drop this guy or drop this guy also\
+2:03:18\
+if you are lucky depending on where the minimum actually occur sometimes we can\
+2:03:23\
+also drop a m2 and m1b so now you'll notice that\
+2:03:28\
+uh we're talking here of closed intervals okay when i use square\
+2:03:31\
+brackets i'm talking of closed intervals that means a and m1 are both included in\
+2:03:35\
+the interval when i talk of something like this\
+2:03:38\
+here this is an open interval for the left hand side and a closed interval on\
+2:03:42\
+the right hand side it is open on the left hand side\
+2:03:47\
+and closed on the right hand side so that means\
+2:03:53\
+m1 is not included in interval interval but b is included in it\
+2:03:57\
+so what we have here is that when alpha is equal to a\
+2:04:00\
+yields the minimum for the objective function\
+2:04:03\
+h alpha we can drop the interval to the right of m1 that is we can still retain\
+2:04:08\
+m1 but drop the interval to the right of m1\
+2:04:12\
+similarly when alpha is equal to b is the minimum for h alpha we can drop the\
+2:04:16\
+interval a m2 okay so basically we if alpha is\
+2:04:22\
+equal to b here then only the adjacent interval\
+2:04:26\
+need to be needs to be considered which is just m2 to be we can drop this big\
+2:04:30\
+guy a to m2 so then that's a huge uh benefit right so uh\
+2:04:37\
+so but uh so when alpha is equal to m1 is the value uh at which the minimum is\
+2:04:42\
+achieved we may not get such a big reduction we can only drop m2 to b\
+2:04:47\
+okay when alpha is equal to m2 is the minimum we can only\
+2:04:50\
+drop a to m1 so the thing is sometimes we can drop off a big part of the\
+2:04:54\
+interval sometimes we cannot it depends on our luck okay but the key is that\
+2:05:00\
+the savings is in the potential in the number of function\
+2:05:04\
+evaluations which it could be an issue because what is the function it's a loss\
+2:05:07\
+function right and the loss function typically\
+2:05:11\
+needs to be evaluated at all data points so\
+2:05:13\
+the beauty of golden section search is that although we may not be able to\
+2:05:18\
+aggressively reduce the search interval we may be able to do it uh we may be\
+2:05:23\
+able to reduce number of functional evaluations how so let's look at it\
+2:05:28\
+so the new bounds on the search interval you go on\
+2:05:32\
+so this depend upon how do we choose you know a b and m and m yeah i'm going to\
+2:05:37\
+close it yeah if suppose no uh minimum is lies\
+2:05:41\
+left off a or no right of m2 then how do we proceed we we are assuming that\
+2:05:47\
+so the thing is the the starting part of the point of the\
+2:05:51\
+algorithm is still zero to alpha max okay so a is initially zero and p is\
+2:05:56\
+alpha max initially m one and two are points in between\
+2:06:01\
+okay so it's a thorough algorithm in the sense that we are not actually uh\
+2:06:06\
+what you call excluding anything optimistically\
+2:06:10\
+so whatever we do is correct mathematically the only thing is that\
+2:06:13\
+because of where the minimum might actually occur\
+2:06:17\
+we may not get such a great reduction in the search space as for binary search\
+2:06:23\
+okay so the new bonds on the search interval\
+2:06:28\
+are reset based on the exclusions mentioned in the previous slide based on\
+2:06:31\
+what interval you could draw at the end of the process\
+2:06:34\
+we are left with an interval containing either zero or one evaluated point why\
+2:06:38\
+is that well the thing is suppose we could drop off\
+2:06:42\
+a uh a comma m2 right a comma m2 then what will be left with m2a m2 to b but\
+2:06:49\
+m2 to b doesn't have any point inside it has only m2 and b\
+2:06:53\
+they are evaluated but nothing is there inside but suppose we had we could drop\
+2:06:58\
+off uh\
+2:07:00\
+the corner interval a to m1 for example then we will be left with m1\
+2:07:04\
+to b right and already we have one evaluated point from the previous\
+2:07:08\
+iteration that is the m21 so we just need to find one more evaluated point\
+2:07:13\
+so depending upon our luck we may have to actually find two points in the\
+2:07:18\
+interval to fresh point or only one fresh point in the interval but what did\
+2:07:22\
+we have to do in one research we had to evaluate\
+2:07:26\
+two points each time right there was no discount there\
+2:07:30\
+here depending on our luck we may have either two evaluations only one\
+2:07:35\
+evaluation so that is the benefit but the downside is that your search\
+2:07:39\
+space may not be reduced as aggressively as in binary search\
+2:07:44\
+but then it's a question of a give and take a trade-off you don't\
+2:07:48\
+know what actually will happen in practice which one will actually turn\
+2:07:51\
+out to be better\
+2:07:54\
+so if we have an interval containing no evaluated point\
+2:07:58\
+the algorithm says we select a random point alpha is equal to p in the reset\
+2:08:03\
+interval a to b and then another point q in the larger\
+2:08:06\
+of the intervals a to p and p to b so you have a and b here\
+2:08:10\
+and you don't have an evaluated point you pick a p randomly between a to b so\
+2:08:15\
+x ap is picked over here so ap is now the larger interval so then you pick\
+2:08:19\
+another point q randomly so then you have a\
+2:08:23\
+b p and q these two guys have to be evaluated so that's two function\
+2:08:27\
+evaluation okay so that's if the interval doesn't\
+2:08:32\
+have any evaluated point in it at all then you have to have two evaluated\
+2:08:36\
+points you have two fresh evaluated points on the other hand if we are left\
+2:08:40\
+with an interval a to b containing only a single evaluated point alpha is equal\
+2:08:44\
+to b then we select alpha is equal to q in the larger of the intervals a to p\
+2:08:48\
+and p to b and only evaluate at that point q so it's only one evaluation so\
+2:08:53\
+this yields another four points on which to continue the golden section search\
+2:08:56\
+and we continue until we achieve the desired accuracy okay so when do we\
+2:09:01\
+actually use the line search the line search method can actually be shown\
+2:09:06\
+to converge to a local optima okay this is\
+2:09:10\
+a mathematical proof exists that shows you\
+2:09:14\
+that if you can do the line search that's the best thing\
+2:09:17\
+right it can it will converge to local optimum whereas\
+2:09:22\
+the other methods like the other dk laws that we were talking to are talking\
+2:09:25\
+about don't have that guarantee\
+2:09:28\
+but it's computationally expensive to use line 7 so that's the reason we don't\
+2:09:32\
+use it in vanilla gradient descent because we can't afford to\
+2:09:35\
+but some methods like newton's method actually require exact line search so\
+2:09:40\
+newton's method is a special technique which\
+2:09:44\
+we won't be talking about in this course that requires you to do exact line\
+2:09:48\
+search okay so one advantage of using exact line search is that fewer steps\
+2:09:53\
+are needed to achieve convergence to a local\
+2:09:55\
+optimum and this might more than compensate for\
+2:09:58\
+the computational expense of individual steps okay now i'm actually done with\
+2:10:02\
+this lecture but before i go i want you to i want to show you an excel sheet\
+2:10:07\
+where i have shown the behavior of line search and golden\
+2:10:11\
+section search i'm going to upload this onto teams you can actually look at it\
+2:10:15\
+yourself let's uh we have not we've implemented\
+2:10:20\
+a variant of golden section search okay which is not the\
+2:10:25\
+getting random points in the interval but we actually use what is called the\
+2:10:29\
+golden ratio that's where the name golden section actually comes from\
+2:10:32\
+okay so the function f is to be minimized is x\
+2:10:37\
+squared minus 6x plus 15 okay so initially we have two points a\
+2:10:42\
+and b so we have decided to search for alpha in the region zero to four\
+2:10:47\
+okay so we want to search for x in the region\
+2:10:50\
+zero to four uh and so what we do is that\
+2:10:54\
+we compute two points x1 and x2 instead of choosing them randomly\
+2:10:59\
+we choose x1 as c5 plus d5 minus c5 that is\
+2:11:04\
+c5 is 0 d5 is 4\
+2:11:08\
+and this uh this d2 is this guy is this guy over here that\
+2:11:14\
+square root of 5 minus 1 divided by 2 that's the golden ratio so what we do is\
+2:11:20\
+a deterministic version of golden section search\
+2:11:24\
+a deterministic version golden section search\
+2:11:36\
+so if you are given a and b which are the end points\
+2:11:39\
+our first point will be a plus b minus a times\
+2:11:44\
+square root of 5 minus 1 divided by 2 and then you have\
+2:11:49\
+b minus b minus a times square root of 5 minus 1\
+2:11:55\
+divided by 2. so this is going to be a plus\
+2:12:01\
+b minus a square root of 5 minus 1 divided by 2\
+2:12:05\
+and this is going to be b minus b minus a\
+2:12:09\
+square root of 5 minus 1 divided by 2 okay square root of 5 minus 1 divided by\
+2:12:16\
+2 is the so called golden ratio\
+2:12:21\
+you can look it up it has a it uh\
+2:12:25\
+actually comes out of antiquity okay the greeks\
+2:12:28\
+were trying to design rectangles that look beautiful\
+2:12:31\
+and they found that if the rectangle had length to width ratio following the\
+2:12:35\
+golden ratio then it would look really beautiful that's where it actually comes\
+2:12:39\
+from but this golden ratio\
+2:12:41\
+also it comes through in fibonacci search and\
+2:12:45\
+so on so that's another use for it so what we\
+2:12:48\
+do is that we have taken x1 and x2 that follow the golden\
+2:12:54\
+section search the deterministic version of it computed four points\
+2:12:58\
+f a f a f b f x 1 and f of x two so we computed f of x one and f of x two\
+2:13:04\
+then based on our rule we'll have to narrow down the search\
+2:13:08\
+a to b becomes one point five two to four\
+2:13:11\
+then we again compute two points okay uh the\
+2:13:18\
+according to golden section search and we compute f of x 1 f x 2 and you you go\
+2:13:23\
+to go down the whole thing and we narrow down the actual answer so basically the\
+2:13:27\
+actual answer is 3 x is equal to three it gets minimized at\
+2:13:32\
+this point so you can look at it yourself and below that we have\
+2:13:36\
+uh we have also binary search i think one research is also here\
+2:13:41\
+our binary search is over here and that works in a more predictable way so you\
+2:13:44\
+can see that we get the same number of same optimal answer free\
+2:13:49\
+okay so i'll put i will upload this excel sheet so you can play with it\
+2:13:52\
+yourself and see how this\
+2:13:56\
+thing works okay so all this learning rate and all those\
+2:14:03\
+things the algorithms is it same when we use uh\
+2:14:07\
+distributed system sir i mean more than one gpu\
+2:14:11\
+yeah the thing is if you use distributed systems right then there is a\
+2:14:15\
+distributed gradients design then what you have to do is that i think\
+2:14:20\
+in the ml ops course you'll see that there are some nice\
+2:14:25\
+techniques to split a large data set to work on different\
+2:14:29\
+uh processors\
+2:14:32\
+and then combine the results of these uh the gradient search that you're doing on\
+2:14:35\
+each of them right so uh\
+2:14:39\
+then the thing is you you'll have alphas that are unique to each processor but\
+2:14:43\
+then you'll have to combine them uh and so that there's lots of issues\
+2:14:46\
+that come out of that okay but uh yeah in principle this\
+2:14:51\
+distributed processing adds another layer of complexity to the whole thing\
+2:14:56\
+okay so okay so you're going to say in each system\
+2:15:00\
+the computation would be same as we do but\
+2:15:04\
+at the end we need to process all the results and yeah so what you do you have\
+2:15:07\
+to combine everything right so basically the\
+2:15:11\
+what you need to do is to do gradient descent and the thing is that's an\
+2:15:14\
+algorithm that works on the entire data set if you have chosen to split the data\
+2:15:19\
+set and work on multiple processors that's your problem you still need to\
+2:15:24\
+simulate what would have happened if you had worked on a single processor and all\
+2:15:28\
+the data together so you get the if you split the data set\
+2:15:32\
+into small different uh the portions then you you\
+2:15:38\
+are able to get the benefit of parallel processing\
+2:15:41\
+but the additional layer is how do you compute the gradient out of all of the\
+2:15:44\
+sub gradient that you're computing so that's an issue right\
+2:15:50\
+yes yes so the so the the thing is the whole\
+2:15:53\
+mlops course is basically about uh\
+2:15:56\
+you know doing distributed machine learning and it's a really important\
+2:15:59\
+thing because the data set is actually in\
+2:16:01\
+billions of examples okay so that's why stochastic gradient\
+2:16:07\
+design batch mini batch gradient descent et cetera came the picture\
+2:16:12\
+but here also we do parallel you know sir like you you showed the amnes data\
+2:16:17\
+set right even you could do that parallelly but that happens in a single\
+2:16:20\
+system yeah even if it trunks a single system or it could happen in\
+2:16:24\
+multiple systems there could be some communication involved\
+2:16:27\
+right or if the thing is you might have to do\
+2:16:31\
+you might want to do gradient search with multiple initialize\
+2:16:34\
+initial points that's another layer of complexity\
+2:16:38\
+i'm not asking you to split the data set just\
+2:16:41\
+with different starting points that's also possibly\
+2:16:45\
+okay thank you\
+2:16:48\
+okay so gaurav says can we ask a few practice theoretical questions based\
+2:16:52\
+upon the topic covered in previous class maybe for max five to ten minutes in the\
+2:16:56\
+end of the class well yes in principle yes but the thing is uh we\
+2:17:01\
+we already take more time than usual just covering the\
+2:17:04\
+existing stuff okay i think what you can do is that\
+2:17:08\
+you can at the end of a given class\
+2:17:12\
+okay if you have some question some problems and so on right\
+2:17:16\
+then you can post them uh on teams or just send them out to me or\
+2:17:22\
+or something like that don't use the discussion forum and so on because i\
+2:17:25\
+tend not to monitor it very much send it to me and i'll try to work it\
+2:17:29\
+out and try to post a solution or give some\
+2:17:32\
+hints before the next class that's something i could do\
+2:17:36\
+okay whereas if you were to focus on just five to ten minutes at the end of\
+2:17:39\
+the class right it might not be very useful because i\
+2:17:43\
+might not be entirely able to solve the those problems in the given time\
+2:17:48\
+so the problem is of sufficient interest for all sections we might actually make\
+2:17:52\
+the solutions available to all sections also\
+2:17:56\
+okay that's some so you can try to do this activity offline\
+2:18:00\
+so uh so for this lecture uh we can follow our main book right uh\
+2:18:05\
+to cover this no actually there's a book by chad agarwal okay and that's\
+2:18:10\
+a different book uh that we followed for this lecture\
+2:18:14\
+i'll give you the uh what do you call the\
+2:18:18\
+i think it's there in the handout as one of the references\
+2:18:21\
+so one question i have like you mentioned in the middle of lecture that\
+2:18:25\
+uh for alpha there is something called armenian rule or uh\
+2:18:30\
+so can you just type it out in the chat yeah thank you\
+2:18:51\
+so that's all i have for this lecture okay so let me stop recording\
+2:18:59\
+so one question okay so regarding the gradient of matrices\
+2:19:04\
+topic actually we did not find any\
+2:19:08\
+solved\
+}

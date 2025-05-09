@@ -1,0 +1,1360 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-26G4XFTR63"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-26G4XFTR63');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P3772VN');</script>
+<!-- End Google Tag Manager -->
+	
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">	
+<link href="/opennotes/css/omn-style.css" rel="stylesheet" type="text/css">
+<title> AMS Open Math Notes</title>
+
+
+
+
+<meta name="google-site-verification" content="qgGBs5iVsNDj2WY9FYh6Yz2frsj8rnOcWTzEp-vDsHg" />
+    <!-- Theming the browser's address bar to match our brand's colors provides a more immersive user experience -->
+    <meta name="theme-color" content="#0057b8"/>
+
+    <!-- START - Facebook Open Graph, Google+ and Twitter Card Tags -->
+    <!-- Open Graph general (Facebook, Pinterest, LinkedIn) -->
+    <meta property="og:title" content="AMS Open Math Notes" />
+    <meta property="og:description" content="Advancing research. Creating connections." />
+    <meta property="og:image" content="https://www.ams.org/images/Logo-Stacked.gif" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="400" />
+    <meta property="og:image:alt" content="American Mathematical Society" />
+    <meta property="og:site_name" content="American Mathematical Society">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:publisher" content="https://www.facebook.com/amermathsoc" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@amermathsoc">
+    <meta name="twitter:title" content="AMS Open Math Notes">
+    <meta name="twitter:description" content="Advancing research. Creating connections.">
+    <meta name="twitter:image" content="https://www.ams.org/images/Logo-Stacked.gif">
+    <meta name="twitter:image:alt" content="American Mathematical Society">
+    <meta name="twitter:creator" content="@authorUsername">
+    <!-- END - Facebook Open Graph, Google+ and Twitter Card Tags-->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "url": "http://www.ams.org",
+        "logo": "https://www.ams.org/images/content/logo.png",
+        "sameAs": [
+            "https://www.facebook.com/amermathsoc",
+            "https://twitter.com/amermathsoc",
+            "https://www.linkedin.com/company/american-mathematical-society"
+        ],
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "+1-800-321-4267",
+                "faxNumber": "+1-401-455-4000",
+                "contactType": "Customer Service",
+                "productSupported": "Corporate Operations",
+                "contactOption": "TollFree",
+                "areaServed": "Worldwide"
+            },
+            {
+                "@type": "ContactPoint",
+                "telephone": "+1-919-515-7863",
+                "faxNumber": "+1-919-515-7896",
+                "contactType": "Customer Service",
+                "productSupported": "American Mathematical Society: Office of the Secretary (Governance)",
+                "areaServed": ["US"],
+                "availableLanguage": ["English"]
+            }
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "201 Charles Street",
+            "addressLocality": "Providence",
+            "addressRegion": "RI",
+            "postalCode": "02904-2213",
+            "addressCountry": "US"
+        },
+        "foundingDate": "1888"
+    }
+    </script>
+
+
+<!-- Favorites Icons -->
+<link rel="shortcut icon" type="image/x-icon" href="https://www.ams.org/images/Logo-Favicon.png">
+<link rel="icon" type="image/x-icon" href="https://www.ams.org/images/Logo-Favicon.png">
+<link rel="icon" type="image/png" href="https://www.ams.org/images/Logo-Favicon.png">
+
+
+<!-- rss feed for feed readers -->
+<link rel="alternate" type="application/rss+xml" title="AMS News" href="https://www.ams.org/cgi-bin/content/news_items.cgi?rss=1" />
+
+<!-- Prefetch -->
+<link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com" />
+<link rel="dns-prefetch" href="https://ajax.googleapis.com" />
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+<!-- Preconnect for google fonts - speed up font load -->
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+<!-- Bootstrap accessibility -->
+<link href="/css/bootstrap-accessibility.css" rel="stylesheet preload" as="style">
+
+<!-- Typography -->
+<link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&display=swap&amp;subset=latin-ext" rel="preload" as="font" crossorigin>
+
+<link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="preload" crossorigin>
+
+<!-- Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" crossorigin>
+
+<!-- Google search CSS -->
+<link href="/css/newgooglecss.css" rel="stylesheet preload" as="style">
+
+<!-- 2022 Redesign -->
+<link href="/css/2022_website.css" rel="stylesheet preload" as="style">
+<link href="/css/yammcss.css" rel="stylesheet preload" type="text/css" as="style">
+
+<link href="/css/global-code.css" rel="stylesheet preload" as="style">
+
+
+
+<!-- jQuery then Bootstrap -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="/js/jquery.modal.min.js"></script>
+
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" ></script>
+  <script type="text/javascript" src="/opennotes/js/opennotes-common.js" ></script>
+  <script type="text/javascript" src="https://www.google.com/recaptcha/api.js" ></script>
+ 
+
+<!-- Placed by txm 26 Nov 2018 Hotjar Tracking Code for https://www.ams.org/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1104779,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+<script src="/js/bootstrap-accessibility.js"></script>
+
+<!-- MEGAMENU SCRIPT-->
+<script>
+                 $(function() {
+        $(document).on('click', '.yamm .dropdown-menu', function(e) {
+          e.stopPropagation()
+        })
+      })
+        </script>
+<!-- END MEGAMENU SCRIPT-->
+
+<!-- google search script -->
+<script>
+  (function() {
+    var cx = '006070101833274801941:dcorgy__oqo';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+
+ window.onload = function(){
+                document.getElementById('gsc-i-id1').placeholder = 'Enhanced by Google';
+        };
+
+</script>
+<!-- / google search script -->
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+  }
+});
+</script>
+
+<script src="/js/MathJax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/cookieconsent.min.css" />
+<script src="/js/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#000000"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  },
+  "theme": "classic",
+  "position": "bottom-right",
+  "content": {
+    "message": "This website uses cookies to ensure you get the best experience on our website.",
+    "href": "/privacy",
+    "dismiss": "Okay",
+    "link": "Learn more about our privacy policy"
+  }
+})});
+</script>
+
+
+<!-- Maze testing script added bt txm on 22 June 2023-->
+
+<script>
+(function (m, a, z, e) {
+  var s, t;
+  try {
+    t = m.sessionStorage.getItem('maze-us');
+  } catch (err) {}
+
+  if (!t) {
+    t = new Date().getTime();
+    try {
+      m.sessionStorage.setItem('maze-us', t);
+    } catch (err) {}
+  }
+
+  s = a.createElement('script');
+  s.src = z + '?t=' + t + '&apiKey=' + e;
+  s.async = true;
+  a.getElementsByTagName('head')[0].appendChild(s);
+  m.mazeUniversalSnippetApiKey = e;
+})(window, document, 'https://snippet.maze.co/maze-universal-loader.js', '2fe4033d-f108-44b9-98e0-e2bae788add9');
+</script>
+<meta name="google-site-verification" content="qgGBs5iVsNDj2WY9FYh6Yz2frsj8rnOcWTzEp-vDsHg" />
+<meta name="msvalidate.01" content="00231D27FB6DCA6C6AA0841A6E522453" />
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P3772VN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<a class="button button--skip-link" href="#main-content">Skip to Main Content</a>
+<input type="hidden" id="ams_class_id" value="" />
+
+<div class="navbar yamm navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <!-- things inside this header remain visible in mobile-->
+<button aria-label="Toggle navigation" aria-controls="navbar-collapse-1" aria-expanded="false" type="button" data-toggle="collapse" data-target="#navbar-collapse-1" class="navbar-toggle">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+
+          <a href="/" class="navbar-brand1">
+ <img src="https://www.ams.org/images/content/logo.png" width="350" height="92"  loading="lazy" alt="American Mathematical Society" class="img-responsive amslogo visible-lg visible-md" aria-label="Welcome to the American Mathematical Society. Advancing research. Creating connections.">
+<img src="https://www.ams.org/images/mathstat-logo-ams.png" alt="American Mathematical Society" class="img-responsive amslogo visible-xs-inline visible-sm-inline" loading="lazy" ></a>
+                  <!-- things inside the header remain visible in mobile-->
+    </div>
+    <div id="navbar-collapse-1" class="navbar-collapse collapse">
+      <!-- things inside this navbar-collapse-1 will be hiden in mobile-->
+
+
+          <p class="navbar-text navbar-right commerceitems">
+            <a href="https://mathscinet.ams.org" class="navbar-link orange">MathSciNet</a>
+            <a href="https://bookstore.ams.org" class="navbar-link" id="bookstorelink">Bookstore</a>
+
+<!-- Commerce -->
+
+<span id="accountDiv"></span>
+
+
+<script src="/js/ajax.js" type="text/javascript"></script>
+<script type="text/javascript">
+function loadAccount () {
+	makeRequest('/cgi-bin/content/account_header.cgi', 'accountDiv');
+	//makeRequest('https://prsdev.ams.org/ebus/AccountHeader.aspx', 'accountDiv');
+}
+
+if (window.addEventListener)
+	window.addEventListener('load', loadAccount, false); 
+else if (window.attachEvent)
+	window.attachEvent('onload', loadAccount);
+</script>
+
+<!-- / Commerce --><br />
+<!-- Search -->
+<span class="navbar-text navbar-right" id="search-box" role="search" aria-label="Sitewide">  
+  <gcse:searchbox-only></gcse:searchbox-only>
+</span>
+<!-- / search -->
+
+          </p>
+
+<!-- Mega Menu -->
+  <div class="clearfix hidden-xs hidden-sm"><br></div>
+  <section id="main-nav" role="navigation" aria-label="Main">
+<ul class="nav navbar-nav navbar-center grayrow">
+  <!-- Content areas -->
+  
+      <li class="dropdown yamm-fw">
+	<button style="border: none;" data-toggle="dropdown" class="dropdown-toggle megahead"
+	  aria-expanded="false">Publications<b class="caret"></b></button>
+    <ul class="dropdown-menu">
+      <li> 
+        <!-- Content container to add padding --> 
+        <div class="yamm-content">
+  <div class="row underline">
+    <h2 class="megaIntroHeader" aria-label="Jump to the publications homepage"><a href="/publications" id="Publications"><i class="fa-duotone fa-house" aria-hidden="true"></i> Publications Home</a> <small> &mdash; <em>Over 100 years of publishing excellence</em></small></h2>
+  </div>
+  <div class="row">
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/books/book-series">Books</a></h3>
+      <ul class="list-unstyled">
+	  <li class="megalinks"><a href="https://bookstore.ams.org/">Bookstore</a></li>
+	  <li class="megalinks"><a href="/arc/books/index.html">Book Author Resources</a></li>
+	  <li class="megalinks"><a href="/submit-proposal/submit-proposal">Submit a Book Proposal</a></li>
+	  <li class="megalinks"><a href="/publications/pubpermissions">AMS Rights, Licensing, Permissions</a></li>
+	  <li class="h3 megalinksHeader"><strong><a href="/open-math-notes">Open Math Notes</a></strong></li>
+	  <li class="megalinks"><a href="/open-math-notes/omn-faq">Frequently Asked Questions</a></li>  
+	</ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/journals/journals">Journals</a></h3>
+	<ul class="list-unstyled">
+	<li class="megalinks"><a href="/journals#memberjournals">Member Journals</a></li>
+        <li class="megalinks"><a href="/journals#research">Research Journals</a></li>
+        <li class="megalinks"><a href="/journals#translation">Translation Journals</a></li>
+        <li class="megalinks"><a href="/journals#distributed">Distributed Journals</a></li>
+        <li class="megalinks"><a href="/open-access">Open Access Journals</a></li>
+	<li class="megalinks"><a href="/policies/policies">Guidelines and Policies</a></li>
+	<li class="megalinks"><a href="/arc/journals/index.html">Journal Author Resources</a></li>
+      </ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/publications/librarian">Librarian Resources</a></h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/ebooks">eBook Collections</a></li>
+        <li class="megalinks"><a href="/counter-compliant-usage-statistics">COUNTER Usage Statistics</a></li>
+        <li class="megalinks"><a href="/cgi-bin/click_access/inquiry.pl">My Subscriptions</a></li>
+        <li class="megalinks"><a href="/journals/subscriberinfo">Subscription Information</a></li>
+        <li class="megalinks"><a href="/license/journals-license">Licensing Information</a></li>
+      </ul>
+    </section>
+      <section class="col-md-3">
+	<h3 class="megalinksHeader"><a href="/math-reviews/math-reviews">Mathematical Reviews/MathSciNet&reg;</a></h3>
+      <ul class="list-unstyled">
+<li class="megalinks"><a href="https://mathscinet.ams.org/mathscinet">MathSciNet<sup>&reg;</sup></a></li>
+<!--li class="megalinks"><a href="https://mathscinet-wp.ams.org/mrnotebook/">Math Reviews Notebook</a></li-->
+<li class="megalinks"><a href="https://mathscinet.ams.org/mresubs/index.html">Reviewer Home</a></li>
+<li class="megalinks"><a href="/publications/math-reviews/mathsciprice">MathSciNet<sup>&reg;</sup> Subscriptions</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+ </li>
+    </ul>
+  </li>
+  <li class="dropdown yamm-fw">
+    <button style="border: none;" data-toggle="dropdown" class="dropdown-toggle megahead" aria-expanded="false">Membership<b class="caret"></b></button>
+    <ul class="dropdown-menu">
+      <li> 
+        <!-- Content container to add padding --> 
+        <div class="yamm-content">
+  <div class="row underline">
+    <h2 class="megaIntroHeader" aria-label="Jump to the membership homepage"><a href="/membership"><i class="fa-duotone fa-house" aria-hidden="true"></i> Membership Home</a> <small> &mdash; <em>Welcome to your membership center</em></small></h2>
+  </div>
+  <div class="row">
+      <section class="col-md-3">
+	<h3 class="megalinksHeader">Membership Choices</h3>
+<ul class="list-unstyled">
+<li class="megalinks"><a href="https://ebus.ams.org/ebus/Membership/JoinAMS.aspx" style="color:#C15324!important;"><i class="fa fa-handshake" aria-hidden="true"></i> Join the Society</a></li>
+<li class="megalinks"><a href="https://ebus.ams.org/ebus/Membership/RenewyourAMSMembership.aspx" style="color:#C15324!important;"><i class="fa fa-address-card" aria-hidden="true"></i> Renew your Membership</a></li>
+<li class="megalinks"><a href="/membership/givemembership" style="color:#C15324!important;"><i class="fa fa-gift" aria-hidden="true"></i> Gift a Membership</a></li>
+</ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/membership#indiv">Individual Membership</a></h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/membership/benefits/benefits"> Member Benefits</a></li>
+        <li class="megalinks"><a href="/cml">Member Directory</a> </li>
+        <li class="megalinks"><a href="/membership/mem-reciprocity">Reciprocating Societies</a> </li>
+        <li class="megalinks"><a href="/memberbership/mem-develop">Members in Developing Countries</a> </li>
+      </ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/institutional/institutional">Institutional Membership</a></h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/institutional/institutional">Domestic Institutions</a></li>
+        <li class="megalinks"><a href="/international-members/international-members">International Institutions</a></li>
+        <li class="megalinks"><a href="/institutional/two-year">Two-Year Institutions</a></li>
+        <li class="megalinks"><a href="/programs/studentchapters">Graduate Student Chapter Program</a></li>
+      </ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader">Other Member Types</h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/institutional/corporate/corporate">Corporate Memberships</a></li>
+        <li class="megalinks"><a href="/institutional/mem-associates">Associate Memberships</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+ </li>
+    </ul>
+  </li>
+  <li class="dropdown yamm-fw">
+    <button style="border: none;" data-toggle="dropdown" class="dropdown-toggle megahead" aria-expanded="false">Meetings &amp; Conferences<b class="caret"></b></button>
+    <ul class="dropdown-menu">
+      <li> 
+        <!-- Content container to add padding --> 
+        <div class="yamm-content">
+  <div class="row underline">
+    <h2 class="megaIntroHeader" aria-label="Jump to the meetings homepage"> <a href="/meetings"><i class="fa-duotone fa-house" aria-hidden="true"></i> Meetings &amp; Conferences Home</a> <small> &mdash; <em>Engage with colleagues and the latest research </em></small></h2>
+  </div>
+  <div class="row">
+      <section class="col-md-3">
+	<h3 class="megalinksHeader"><a href="/national/national">National Meetings</a></h3>
+	<ul class="list-unstyled">
+	<li class="megalinks"><a href="http://jointmathematicsmeetings.org/">Joint Mathematics Meetings</a></li>
+	<li class="megalinks"><a href="/national/national">Upcoming JMMs</a></li>
+	<li class="megalinks"><a href="/national_past.html">Previous JMMs</a></li>
+	<li class="megalinks"><a href="/lectures/lectures">Special Lectures</a></li>
+	<li class="megalinks"><a href="/national/national#pep">Professional Enhancement Programs (PEPs)</a></li>
+ </ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/sectional/sectional-index">Sectional Meetings</a></h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/sectional/sectional.html">Upcoming Sectionals</a></li>
+        <li class="megalinks"><a href="/sectional/sectional_past.html">Previous Sectionals</a></li>
+        <li class="megalinks"><a href="/presenting/sectional-papers">Presenting Papers</a></li>
+        <li class="megalinks"><a href="/hosting/hosting">Hosting Sectionals</a></li>
+      </ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader">Other Meetings, Conferences &amp; Workshops</h3>
+	<ul class="list-unstyled">
+        <li class="megalinks"><a href="/research-communities/mrc">Mathematics Research Communities</a></li>
+	  <li class="megalinks"><a href="/meetings/coeminiconference">Education Mini-conference</a></li>
+	  <li class="megalinks"><a href="/international-index">International Meetings</a></li>
+	  <li class="megalinks"><a href="/calendar/mathcalendar.pl">Mathematics Calendar</a></li>
+	  <li class="megalinks"><a href="/short-course-general">Short Courses</a></li>
+	  <li class="megalinks"><a href="/workshops/chairsworkshop">Workshop for Department Chairs and Leaders</a></li>
+      </ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader">Meetings Resources</h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/lectures/suggestspeaker">Suggest a Speaker</a></li>
+        <li class="megalinks"><a href="/meetings/meetings-grants">AMS Meetings Grants</a></li>
+        <li class="megalinks"><a href="/abstracts/abstracts">Submitting Abstracts</a></li>
+        <li class="megalinks"><a href="/policy-statements/welcoming-environment-policy">Welcoming Environment Policy</a></li>
+        <li class="megalinks"><a href="https://mathsafe.org/mathsafe/mathsafe-home">MathSafe &ndash; supporting safe meetings</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+ </li>
+    </ul>
+  </li>
+  <li class="dropdown yamm-fw">
+    <button style="border: none;" data-toggle="dropdown" class="dropdown-toggle megahead" aria-expanded="false">News &amp; Outreach<b class="caret"></b></button>
+    <ul class="dropdown-menu">
+      <li> 
+        <!-- Content container to add padding --> 
+        <div class="yamm-content">
+  <div class="row underline">
+    <h2 class="megaIntroHeader" aria-label="Jump to the News &amp; Outreach homepage"><a href="/publicoutreach"><i class="fa-duotone fa-house" aria-hidden="true"></i> News &amp; Outreach Home</a> <small><em>&mdash; Explore news, images, posters, and mathematical essays</em></small></h2>
+  </div>
+  <div class="row">
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/news">News from the AMS</a></h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/news?class_id=1&expand=1&type=news">AMS News Releases</a></li>
+        <li class="megalinks"><a href="/publicoutreach/featurestories">Feature Stories</a></li>
+        <li class="megalinks"><a href="/media-info/info-for-journalists">Information for Journalists</a></li>
+        <li class="megalinks"><a href="/publicoutreach/in-memory/in-memory">In Memory Of</a></li>
+      </ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="https://mathvoices.ams.org/">Math Voices</a></h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="https://mathvoices.ams.org/featurecolumn/">Feature Column</a></li>
+        <li class="megalinks"><a href="https://mathvoices.ams.org/mathmedia/">Math in the Media</a></li>
+        <li class="megalinks"><a href="https://mathvoices.ams.org/teachingandlearning/">Column on Teaching and Learning</a></li>
+	</ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader">Explorations</h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/about-us/edi-community">Recognizing Diverse Mathematicians</a></li>
+        <li class="megalinks"><a href="/posters">AMS Posters</a></li>
+        <li class="megalinks"><a href="/publicoutreach/math-and-music">Mathematics &amp; Music</a></li>
+        <li class="megalinks"><a href="/math-imagery/math-imagery">Mathematical Imagery</a></li>
+        <li class="megalinks"><a href="/mathmoments/mathmoments">Mathematical Moments</a></li>
+      </ul>
+    </section>
+    <!--section class="col-md-3">
+      <ul class="list-unstyled">
+        <li class="megalinks"></li>
+      </ul>
+    </section-->
+  </div>
+</div>
+ </li>
+    </ul>
+  </li>
+  <li class="dropdown yamm-fw">
+    <button style="border: none;" data-toggle="dropdown" class="dropdown-toggle megahead" aria-expanded="false">Grants &amp; Awards<b class="caret"></b></button>
+    <ul class="dropdown-menu">
+      <li> 
+        <!-- Content container to add padding --> 
+        <div class="yamm-content">
+  <div class="row underline">
+    <h2 class="megaIntroHeader" aria-label="Jump to the Grants &amp; Awards Home homepage"><a href="/grants-awards"><i class="fa-duotone fa-house" aria-hidden="true"></i> Grants &amp; Awards Home</a> <small><em>&mdash; Resources and opport unities to further your mathematical pursuits</em></small></h2>
+  </div>
+  <div class="row">
+    <section class="col-md-4">
+      <h3 class="megalinksHeader">Grants</h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/travel-grants"> Research &amp; Travel Grants</a></li>
+        <li class="megalinks"><a href="/meetings-child-care-grants"> Child Care Grants for Meetings</a></li>
+        <li class="megalinks"><a href="/emp-epsilon"> Young Scholars Program Grants </a></li>
+      </ul>
+    </section>
+    <section class="col-md-4">
+      <h3 class="megalinksHeader">Honors &amp; Awards</h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/prizes-awards/palist.cgi">Prizes &amp; Awards</a></li>
+        <li class="megalinks"><a href="/ams-fellows"> Fellows of the AMS</a></li>
+      </ul>
+    </section>
+    <section class="col-md-4">
+      <h3 class="megalinksHeader"><a href="/ams-fellowships"> AMS Fellowships</a></h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/bergman-fellow">Stefan Bergman Fellowship</a></li>
+        <li class="megalinks"><a href="/Birman-fellow"> Birman Fellowship for Women Scholars</a></li>
+        <li class="megalinks"><a href="/emp-centflyer"> Centennial Fellowship</a></li>
+        <li class="megalinks"><a href="/Claytor-Gilmer"> Claytor-Gilmer Fellowship</a></li>
+      </ul>
+    </section>
+    <!--section class="col-md-3">
+      <h3 class="megalinksHeader">Awards &amp; Recognition</h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/prizes-awards/palist.cgi">AMS Prizes &amp; Awards</a></li>
+        <li class="megalinks"><a href="/ams-fellows/ams-fellows">Fellows of the AMS</a></li>
+      </ul>
+    </section--> 
+  </div>
+</div>
+ </li>
+    </ul>
+  </li>
+  <li class="dropdown yamm-fw">
+    <button style="border: none;" data-toggle="dropdown" class="dropdown-toggle megahead" aria-expanded="false">Learning &amp; Careers<b class="caret"></b></button>
+    <ul class="dropdown-menu">
+      <li> 
+        <!-- Content container to add padding --> 
+        <div class="yamm-content">
+  <div class="row underline">
+    <h2 class="megaIntroHeader" aria-label="Jump to the Learning and Careers homepage"><a href="/learning-careers"><i class="fa-duotone fa-house" aria-hidden="true"></i> Learning &amp; Careers Home</a> <small><em>&mdash; Resources to support advanced mathematics teaching and learning</em></small></h2>
+  </div>
+  <div class="row">
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/students">For Students</a></h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/high-school">High School</a></li>
+        <li class="megalinks"><a href="/undergraduate"> Undergraduate</a></li>
+        <li class="megalinks"><a href="/graduate"> Graduate</a></li>
+        <li class="megalinks"><a href="/find-graduate-programs"> Find Graduate Programs</a></li>
+        <li class="megalinks"><a href="/emp-reu">Research Experience for Undergraduates (REUs)</a></li>
+      </ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/leaders">For Faculty &amp; Leaders</a></h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/chairsworkshop"> Department Chairs Workshop</a></li>
+        <li class="megalinks"><a href="https://mathvoices.ams.org/teachingandlearning/"> Column on Teaching &amp; Learning</a></li>
+        <li class="megalinks"><a href="https://mathvoices.ams.org/mathmedia/"> Math in the Media</a></li>
+        <li class="megalinks"><a href="/emp-survey"> Salary &amp; Departmental Data</a></li>
+      </ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader">Jobs</h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/employment-services"> Employment Services</a></li>
+        <li class="megalinks"><a href="https://www.mathjobs.org/"> MathJobs</a></li>
+        <li class="megalinks"><a href="/begin/"> BEGIN Careers</a></li>
+      </ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/profdev">Professional Development</a></h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/mrc"> Mathematics Research Communities</a></li>
+        <li class="megalinks"><a href="/opportunities"> Mathematical Opportunities Listing</a></li>
+        <li class="megalinks"><a href="https://www.mathprograms.org/"> MathPrograms</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+ </li>
+    </ul>
+  </li>
+  <!--here-->
+  
+  <li class="dropdown yamm-fw">
+    <button style="border: none;" data-toggle="dropdown" class="dropdown-toggle megahead" aria-expanded="false">Government Relations<b class="caret"></b></button>
+    <ul class="dropdown-menu">
+      <li> 
+        <!-- Content container to add padding --> 
+        <div class="yamm-content">
+  <div class="row underline">
+    <h2 class="megaIntroHeader" aria-label="Jump to the Government Relations homepage"><a href="/government"><i class="fa-duotone fa-house" aria-hidden="true"></i> Government Relations Home</a> <small><em>&mdash; Advocating for the mathematical sciences</em></small></h2>
+  </div>
+  <div class="row">
+    <section class="col-md-3">
+	<h3 class="megalinksHeader">Elevating Mathematics in Congress</h3>
+	<ul class="list-unstyled">
+	  <li class="megalinks"><a href="/government/dc-mission">Our Mission</a></li>
+<li class="megalinks"><a href="/government/letters-statements-legislation">Letters, Statements, &amp; Legislation</a></li>
+	  <li class="megalinks"><a href="/government/dc-outreach">Congressional Briefings</a></li>
+	</ul>
+    </section>
+
+      <section class="col-md-3">
+<h3 class="megalinksHeader">Legislative Priorities</h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/government/dc-issues">Federal Issues of Concern</a> </li>
+        <li class="megalinks"><a href="/government/dc-budgetprimer">Federal Budget Process</a> </li>
+      </ul>
+
+	 </section>
+
+      <section class="col-md-3">
+      <h3 class="megalinksHeader">Get Involved</h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/government/dc-prepare">Advocacy Resources</a> </li>
+        <li class="megalinks"><a href="/government/getinvolved-dc#/">Take Action</a> </li>
+        <li class="megalinks"><a href="/government/Contact-Us">Contact Us</a> </li>
+      </ul>
+      </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader">DC-Based Fellowships</h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/programs/ams-fellowships/ams-congressional-fellowship">Congressional Fellowship</a> </li>
+        <li class="megalinks"><a href="/programs/ams-fellowships/media-fellow/massmediafellow">Mass Media Fellowship</a> </li>
+        <li class="megalinks"><a href="/government/dc-case-fellowship">Catalyzing Advocacy in Science &amp; Engineering (CASE) Fellowship</a></li>
+      </ul>
+    </section>
+    <section class="col-md-3"> </section>
+  </div>
+</div>
+ </li>
+    </ul>
+  </li>
+  <li class="dropdown yamm-fw">
+    <button style="border: none;" data-toggle="dropdown" class="dropdown-toggle megahead" aria-expanded="false">Giving<b class="caret"></b></button>
+    <ul class="dropdown-menu">
+      <li> 
+        <!-- Content container to add padding --> 
+        <div class="yamm-content">
+  <div class="row underline">
+    <h2 class="megaIntroHeader" aria-label="Jump to the Development homepage"><a href="/support-ams"><i class="fa-duotone fa-house" aria-hidden="true"></i> Giving to the AMS</a> <small> &mdash; <em>Your gifts make great things happen for mathematics</em></small> &nbsp; <a href="https://ebus.ams.org/ebus/Giving/MakeAGift.aspx?_ga=2.126038349.1919342640.1572527963-117346980.1572527963">
+      <button type="button" class="btn btn-sm btn-success btn-xs">Make a Gift</button>
+      </a> </h2>
+  </div>
+  <div class="row">
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/giving_op">What You Can Support</a></h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/giving/2020Fund">The 2020 Fund</a></li>
+        <li class="megalinks"><a href="/giving/nextgen">Next Generation Fund </a></li>
+        <li class="megalinks"><a href="/giving_op/birman-fellowship-fund">Birman Fellowship for Women Scholars</a></li>
+        <li class="megalinks"><a href="/child-care-grants">JMM Child Care Grants</a></li>
+        <li class="megalinks"><a href="/giving_op/support-mrc">Mathematics Research Communities </a></li>
+        <li class="megalinks"><a href="/giving_op/mdc">MathSciNet for Developing Countries</a></li>
+      </ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/create-a-legacy">Create a Legacy</a></h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/ways-to-give/in-honor-of">Make a Tribute Gift</a></li>
+        <li class="megalinks"><a href="/ways-to-give/named-endowed-funds">Create a Permanent Fund</a></li>
+        <li class="megalinks"><a href="/ways-to-give/establish-prize-award">Establish a Prize, Award or Fellowship</a></li>
+        <li class="megalinks"><a href="/ways-to-give/including-the-ams-in-your-will">Bequests and Charitable Estate Planning</a></li>
+      </ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/honoring">Honoring Your Gift</a></h3>
+      <ul class="list-unstyled">
+	<li class="megalinks"><a href="/giving/donorstories">Donor Stories</a></li>
+	<li class="megalinks"><a href="/honoring/donor-wall">Donor Wall of Honor</a></li>
+        <li class="megalinks"><a href="/honoring/fiske-society">Thomas S. Fiske Society</a></li>
+        <li class="megalinks"><a href="/honoring/gift-society">AMS Contributors Society</a></li>
+        <li class="megalinks"><a href="/honoring/ams-gardens">AMS Gardens</a></li>
+      </ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/giving-resources">Giving Resources</a></h3>
+      <ul class="list-unstyled">
+        <li class="megalinks"><a href="/committees/comm-all.html#DEVELOP">AMS Development Committee</a></li>
+	  <li class="megalinks"><a href="/development-office/giftacceptance">AMS Gift Acceptance Policy</a></li>
+	  <li class="megalinks"><a href="/giving/contactus">Contact Us</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+ </li>
+    </ul>
+  </li>
+  <li class="dropdown yamm-fw">
+    <button style="border: none;" data-toggle="dropdown" class="dropdown-toggle megahead" aria-expanded="false">About the AMS<b class="caret"></b></button>
+    <ul class="dropdown-menu">
+      <li> 
+        <!-- Content container to add padding --> 
+        <div class="yamm-content">
+  <div class="row underline">
+    <h2 class="megaIntroHeader" aria-label="Jump to the About Us homepage"><a href="/about"><i class="fa-duotone fa-house" aria-hidden="true"></i> About the AMS</a> <small><em>&mdash; Advancing research. Connecting the mathematics community.</em></small></h2>
+  </div>
+  <div class="row">
+    <section class="col-md-3">
+      <h3 class="megalinksHeader">Our Organization</h3>
+	<ul class="list-unstyled">
+	  <li class="megalinks"><a href="/executive-staff/exec-staff">Executive Staff</a></li>
+	  <li class="megalinks"><a href="/about-us/diversity">Equity, Diversity, &amp; Inclusion</a></li>
+	  <li class="megalinks"><a href="/ams-jobs/ams-jobs">Jobs at AMS</a></li>
+	  <li class="megalinks"><a href="/reach">Contact Us</a></li>
+	  <li class="megalinks"><a href="/custserv">Customer Service</a></li>
+	  </ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader"><a href="/governance/governance">Our Governance</a></h3>
+	<ul class="list-unstyled">
+        <li class="megalinks"><a href="officers/officers">Officers</a></li>
+        <li class="megalinks"><a href="/member-board">Board of Trustees</a></li>
+        <li class="megalinks"><a href="/member-council">Council</a></li>
+        <li class="megalinks"><a href="/governance/exec-comm/ec">Executive Committee </a></li>
+<li class="megalinks"><a href="/presidents/presidents">Presidents</a></li>
+	  <li class="megalinks"><a href="/committees/gov-committees">Committees</a></li>
+	</ul>
+    </section>
+    <section class="col-md-3">
+      <h3 class="megalinksHeader">Governance Operations</h3>
+      <ul class="list-unstyled">
+       <li class="megalinks"><a href="/bylaws/bylaws">By-Laws</a></li>
+        <li class="megalinks"><a href="/elections/election-info">Elections</a></li>
+        <li class="megalinks"><a href="/governance/sec-governancemeetings">Calendar of Meetings</a></li>
+        <li class="megalinks"><a href="/sec-ams-policystatements">Policy Statements &amp; Guidelines</a></li>
+      </ul>
+    </section>
+    <section class="col-md-3"> </section>
+  </div>
+</div>
+ </li>
+    </ul>
+  </li>
+</ul>
+</section>
+<!-- / Mega Menu -->
+
+      <!-- end gray row-->
+      <!-- things inside this navbar-collapse-1 ^^above^^ will be hiden in mobile-->
+    </div>
+  </div>
+</div>
+
+
+
+<!--alert ajax call goes below-->
+<div class="row">
+
+<script>
+if (window.addEventListener)
+        window.addEventListener('load', showAlert, false);
+else if (window.attachEvent)
+        window.attachEvent('onload', showAlert);
+
+function showAlert() {
+//Enter the start & end dates & times you would want the message to appear by modifying the startTime and endTime variables below using this format
+//new Date(YYYY, MM, DD, HH, MM, SS, 0)
+//Note that for MM 
+	//January is 00, 
+	//February is 01, 
+	//March is 02, 
+	//April is 03, 
+	//May is 04, 
+	//June is 05, 
+	//July is 06,
+	//August is 07,
+	//Sept is 08,
+	//Oct is 09,
+	//Nov is 10,
+	//Dec is 11,	
+
+    var startTime = new Date(2024, 10, 29, 01, 00, 00, 00);
+    var endTime = new Date(2024, 11, 01, 08, 00, 00, 00);
+    var timeNow = new Date();
+    var x = document.getElementById('alertDiv');
+    if (x && timeNow > startTime  && timeNow < endTime) {
+        x.style.display = "inline-block";
+    } 
+}
+</script><!-- Do not change the properties of this div unless you want to change the styling -->
+<div class="alert alert-dismissible alert-info alert-primary alertDiv col-md-12" id="alertDiv" role="alert" style="display:none;"><button aria-label="Close" class="close btn-close" data-bs-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button><h4 class="text-center"><a class="alert-link" href="https://www.ams.org/membership/ams-day"><i class="fa-sharp fa-solid fa-bell"></i><span style="font-size: 16px;">&nbsp; AMS members, we celebrate you on AMS Day! Check out the exclusive offers available December 2, 12 a.m. - 11:59 p.m. ET!</span></a></h4>
+</div>
+<!-- this is the end div -->
+
+
+</div>
+<!--alert ajax call goes above-->
+
+<script>
+$(function(){
+   var thisUrl = String(window.location);
+   var button_section = document.getElementById("buttons");
+   if (thisUrl.indexOf('guidelines') >= 0) {
+       document.getElementById("simple_search").style.display = "block";
+       document.getElementById("advanced_search").style.display = "none";
+   } else if (thisUrl.indexOf('omn-submit') >= 0 || thisUrl.indexOf('omn-contact') >= 0 
+           || thisUrl.indexOf('omn-faq') >= 0
+           || thisUrl.indexOf('omn-mynotes') >= 0 || thisUrl.indexOf('course-material') >= 0) {
+       document.getElementById("left_column").style.display = "none";
+       $('#right_column').removeClass('col-md-7');
+       $('#omn_header_left').removeClass('col-md-5 rightline');
+       $('#omn_header_left').addClass('col-md-6 rightline');
+       $('#omn_header_right').removeClass('col-md-7');
+       $('#omn_header_right').addClass('col-md-6');
+   } else if (thisUrl.indexOf('advanced') >= 0) {
+       document.getElementById("simple_search").style.display = "none";
+       document.getElementById("advanced_search").style.display = "block";
+       $('#adv_search_button').html('&nbsp;');
+   } else {
+       document.getElementById("simple_search").style.display = "block";
+       document.getElementById("advanced_search").style.display = "none";
+   }
+});
+</script>
+
+<!-- Main content -->
+<div class="container-fluid gutters">
+<!-- center column -->
+
+</script>
+<div class="clearfix"><br></div>
+<div class="row">
+<div id="omn_header_left" class="col-md-5 rightline">
+  <a name="top"></a>
+  <header>
+    <h1 class="omntitle">Open Math Notes</h1>
+    <h2>Resources and inspiration for math instruction and learning</h2>
+    <section id="buttons">
+       <a class="btn btn-info" href="/open-math-notes" role="button"><i class="fas fa-home"></i> Home</a>
+       <a class="btn btn-info" href="/open-math-notes/omn-submit" role="button">Submit</a> 
+       <a class="btn btn-gray" href="/open-math-notes/omn-faq" role="button">FAQ</a> 
+       <a class="btn btn-gray" href="/open-math-notes/omn-contact-us" role="button">Contact</a> 
+       <a class="btn btn-orange" href="/open-math-notes/omn-mynotes" role="button">My Notes</a> 
+    </section>
+    <p id="adv_search_button" class="pull-right">
+       <a href="/open-math-notes/omn-advanced-search"><button type="button" class="btn btn-link"><b><em>Advanced Search</em></b></button></a>
+    </p>
+  </header>
+</div>
+<div id="omn_header_right" class="col-md-7">
+  <form class="navbar-form navbar-input-group pull-right" method="post" action="/open-math-notes/omn-advanced-search?submitAction=quickSearch">
+    <div class="input-group">
+       <input type="search" id="searchTxtText" name="searchTxt" placeholder="Search Open Math Notes" class="form-control" value="">
+       <div class="input-group-btn">
+          <button id="submitActionBtn" class="btn btn-info" type="submit" name="submitAction" value="advancedSearch">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+       </div>
+    </div>
+  </form>
+  <div class="clearfix"><br></div>
+  <p class="AMS_blue_foreground" style="font-size:1.07em"><em>Welcome to AMS Open Math Notes, a repository of freely 
+  downloadable mathematical works hosted by the American Mathematical Society as a service to researchers, faculty and 
+  students. Open Math Notes includes:</em></p>
+  <ul class="AMS_blue_foreground" style="font-size:1.07em"><em>
+    <li>Draft works including course notes, textbooks, and research expositions. These have not been published elsewhere and are subject to revision.</li>
+    <li>Items previously published in the Journal of Inquiry-Based Learning in Mathematics, a refereed journal</li>
+    <li>Refereed publications at the AMS</li>
+  </em></ul>
+  <p class="AMS_blue_foreground" style="font-size:1.07em"><em>Visitors are encouraged to download and use any of these materials as teaching and research aids, and to send constructive 
+  comments and suggestions to the authors.</em></p>
+</div>
+</div>
+<div class="clearfix"></div>
+
+
+<div class="row">
+  <div id="left_column" class="col-md-5">
+    <div class="clearfix">
+    </div>
+    <div id="simple_search">
+    <section id="search">
+   <form id="browseSearchForm" class="form-horizontal">
+        <input type="hidden" id="isPostBack" value="0" />
+        <input id="submitAction" name="submitAction" type="hidden" value="browseSearch">
+        <input id="showResults" name="showResults" value="true" type="hidden">
+        
+        <div class="form-group">
+           <label class="col-sm-3 control-label" for="gradLevelSelect">Level</label>
+           <div class="col-sm-9">
+              <select id="gradLevelSelect" name="grad_level" class="form-control class-selector" onchange="$('#isPostBack').val(1);">
+                <option value="">All</option>
+                                                                <option id="grad_level_5" class="class-option" value="5">Pre-University</option>
+                                                                <option id="grad_level_3" class="class-option" value="3">Undergraduate</option>
+                                                                <option id="grad_level_4" class="class-option" value="4">Graduate</option>
+                              </select>
+           </div>
+        </div>
+        
+        <div class="form-group">
+           <label class="col-sm-3 control-label" for="categorySelect">Notes type</label>
+           <div class="col-sm-9">
+              <select id="categorySelect" name="category" class="form-control class-selector" onchange="$('#isPostBack').val(1);">
+                <option value="">All</option>
+                                                                <option id="category_7" class="class-option" value="7">Standard Course Offering</option>
+                                                                <option id="category_8" class="class-option" value="8">Topics Course</option>
+                                                                <option id="category_9" class="class-option" value="9">Research Monographs</option>
+                                                                <option id="category_10" class="class-option" value="10">Short Notes</option>
+                                                                <option id="category_11" class="class-option" value="11">Inquiry-Based Learning (IBL)</option>
+                                                                <option id="category_12" class="class-option" value="12">JIBLM refereed Course Notes</option>
+                              </select>
+           </div>
+        </div>
+        
+        <div class="form-group">
+           <label class="col-sm-3 control-label" for="topicSelect">Topic</label>
+           <div class="col-sm-9">
+              <select id="topicSelect" name="topic" class="form-control class-selector" onchange="$('#isPostBack').val(1);">
+                <option value="">All</option>
+                                                                      <option id="topic_66" class="class-option" value="66">Introduction to Mathematics</option>
+<!--
+                  <option id="topic_66" class="class-option" value="66" >Introduction to Mathematics</option>
+-->
+                                                                                        <option id="topic_70" class="class-option" value="70">Algebra</option>
+<!--
+                  <option id="topic_70" class="class-option" value="70" >Algebra</option>
+-->
+                                                                                        <option id="topic_88" class="class-option" value="88">Analysis</option>
+<!--
+                  <option id="topic_88" class="class-option" value="88" >Analysis</option>
+-->
+                                                                                        <option id="topic_129" class="class-option" value="129" disabled>Biological Mathematics</option>
+<!--
+                  <option id="topic_129" class="class-option" value="129" >Biological Mathematics</option>
+-->
+                                                                                        <option id="topic_95" class="class-option" value="95">Differential Equations</option>
+<!--
+                  <option id="topic_95" class="class-option" value="95" >Differential Equations</option>
+-->
+                                                                                        <option id="topic_100" class="class-option" value="100">Discrete Mathematics</option>
+<!--
+                  <option id="topic_100" class="class-option" value="100" >Discrete Mathematics</option>
+-->
+                                                                                        <option id="topic_104" class="class-option" value="104">Dynamical Systems and Ergodic Theory</option>
+<!--
+                  <option id="topic_104" class="class-option" value="104" >Dynamical Systems and Ergodic Theory</option>
+-->
+                                                                                        <option id="topic_128" class="class-option" value="128">Financial Mathematics</option>
+<!--
+                  <option id="topic_128" class="class-option" value="128" >Financial Mathematics</option>
+-->
+                                                                                        <option id="topic_83" class="class-option" value="83">Geometry</option>
+<!--
+                  <option id="topic_83" class="class-option" value="83" >Geometry</option>
+-->
+                                                                                        <option id="topic_108" class="class-option" value="108">Logic and Set Theory</option>
+<!--
+                  <option id="topic_108" class="class-option" value="108" >Logic and Set Theory</option>
+-->
+                                                                                        <option id="topic_135" class="class-option" value="135" disabled>Mathematical Modeling</option>
+<!--
+                  <option id="topic_135" class="class-option" value="135" >Mathematical Modeling</option>
+-->
+                                                                                        <option id="topic_121" class="class-option" value="121">Mathematical Physics</option>
+<!--
+                  <option id="topic_121" class="class-option" value="121" >Mathematical Physics</option>
+-->
+                                                                                        <option id="topic_137" class="class-option" value="137">Mathematics Education</option>
+<!--
+                  <option id="topic_137" class="class-option" value="137" >Mathematics Education</option>
+-->
+                                                                                        <option id="topic_78" class="class-option" value="78">Number Theory</option>
+<!--
+                  <option id="topic_78" class="class-option" value="78" >Number Theory</option>
+-->
+                                                                                        <option id="topic_130" class="class-option" value="130">Numerical Analysis</option>
+<!--
+                  <option id="topic_130" class="class-option" value="130" >Numerical Analysis</option>
+-->
+                                                                                        <option id="topic_116" class="class-option" value="116">Probability</option>
+<!--
+                  <option id="topic_116" class="class-option" value="116" >Probability</option>
+-->
+                                                                                        <option id="topic_115" class="class-option" value="115">Representation Theory</option>
+<!--
+                  <option id="topic_115" class="class-option" value="115" >Representation Theory</option>
+-->
+                                                                                        <option id="topic_120" class="class-option" value="120">Statistics</option>
+<!--
+                  <option id="topic_120" class="class-option" value="120" >Statistics</option>
+-->
+                                                                                        <option id="topic_138" class="class-option" value="138" disabled>Theory of Computation</option>
+<!--
+                  <option id="topic_138" class="class-option" value="138" >Theory of Computation</option>
+-->
+                                                                                        <option id="topic_109" class="class-option" value="109">Topology</option>
+<!--
+                  <option id="topic_109" class="class-option" value="109" >Topology</option>
+-->
+                                                                                        <option id="topic_131" class="class-option" value="131">Other</option>
+<!--
+                  <option id="topic_131" class="class-option" value="131" >Other</option>
+-->
+                                                </select>
+           </div>
+        </div>
+
+        <div class="form-group">
+           <label class="col-sm-3 control-label" for="sortBy">Sort by</label>
+           <div class="col-sm-9">
+              <select class="omn-paginate-select-sort form-control">
+                <option value="submit_date" data-sort-dir="DESC">Date posted</option>
+                <option value="updated" data-sort-dir="DESC">Date revised</option>
+                <option value="title" data-sort-dir="ASC">Title</option>
+                <option value="author_last_name" data-sort-dir="ASC">Author</option>
+                <option value="download_count" data-sort-dir="DESC">Most downloaded</option>
+              </select>
+           </div>
+        </div>
+
+
+        <div class="form-group text-center">
+          <div>
+            <div>
+				
+              <a class="btn btn-info" href="/open-math-notes" role="button"><i class="far fa-undo"></i> Reset</a>
+<!--
+              <a href="/open-math-notes/omn-search-results"><button type="button" class="btn btn-primary"><i class="far fa-search"></i> Find Math Notes</button></a>
+              <a class="btn btn-info" href="/open-math-notes/omn-advanced-search" role="button">Advanced Search</a>
+-->
+
+<!--
+            </div>
+            <div class="clearfix"><br>
+            </div>
+            <p class="text-lowercase"><strong><em><a href="omn-advanced-search.html">try advanced search</a></em></strong></p>
+-->
+          </div>
+        </div>
+   </form>
+</section>
+
+    </div>
+    <div id="advanced_search">
+    <section id="search">
+   <form id="browseAdvancedSearchForm" class="form-horizontal">
+       <input type="hidden" id="isPostBack" value="0" />
+       
+       
+       <div class="form-group">
+           <label class="col-sm-3 control-label" for="gradLevelSelect1">Level</label>
+           <div class="col-sm-9">
+              <select id="gradLevelSelect1" name="gradLevel" class="form-control">
+                <option value="">All</option>
+                                                                <option id="gradLevel_5" class="class-option" value="5">Pre-University</option>
+                                                                <option id="gradLevel_3" class="class-option" value="3">Undergraduate</option>
+                                                                <option id="gradLevel_4" class="class-option" value="4">Graduate</option>
+                              </select>
+           </div>
+       </div>
+       
+       <div class="form-group">
+          <label class="col-sm-3 control-label" for="categorySelect">Notes type</label>
+          <div class="col-sm-9">
+             <select id="categorySelect" name="category" class="form-control">
+                <option value="">All</option>
+                                                                <option id="category_7" class="class-option" value="7">Standard Course Offering</option>
+                                                                <option id="category_8" class="class-option" value="8">Topics Course</option>
+                                                                <option id="category_9" class="class-option" value="9">Research Monographs</option>
+                                                                <option id="category_10" class="class-option" value="10">Short Notes</option>
+                                                                <option id="category_11" class="class-option" value="11">Inquiry-Based Learning (IBL)</option>
+                                                                <option id="category_12" class="class-option" value="12">JIBLM refereed Course Notes</option>
+                             </select>
+          </div>
+       </div>
+       
+       <div class="form-group">
+          <label class="col-sm-3 control-label" for="topicSelect">Topic</label>
+          <div class="col-sm-9">
+             <select id="topicSelect" name="topic" class="form-control">
+                <option value="">All</option>
+                                                                      <option id="topic_66" class="superset class-option" value="66" >Introduction to Mathematics</option>
+                  
+                                                                                      <option id="topic_67" class="subset class-option" value="67" >Introduction to Proofs</option>
+                                                                                      <option id="topic_68" class="subset class-option" value="68" >Mathematics for Liberal Arts</option>
+                                                                                      <option id="topic_133" class="subset class-option" value="133" >Precalculus/Calculus</option>
+                                                                                      <option id="topic_134" class="subset class-option" value="134" >Trigonometry</option>
+                                                                                      <option id="topic_69" class="subset class-option" value="69" >Other</option>
+                    
+                                                                                        <option id="topic_70" class="superset class-option" value="70" >Algebra</option>
+                  
+                                                                                      <option id="topic_71" class="subset class-option" value="71" >Linear Algebra</option>
+                                                                                      <option id="topic_72" class="subset class-option" value="72" >Commutative Algebra</option>
+                                                                                      <option id="topic_73" class="subset class-option" value="73" >Group Theory</option>
+                                                                                      <option id="topic_74" class="subset class-option" value="74" >Associative Algebra</option>
+                                                                                      <option id="topic_75" class="subset class-option" value="75" >Lie Algebras</option>
+                                                                                      <option id="topic_76" class="subset class-option" value="76" >Non-associative Algebra</option>
+                                                                                      <option id="topic_77" class="subset class-option" value="77" >Other</option>
+                    
+                                                                                        <option id="topic_88" class="superset class-option" value="88" >Analysis</option>
+                  
+                                                                                      <option id="topic_89" class="subset class-option" value="89" >Real Analysis</option>
+                                                                                      <option id="topic_90" class="subset class-option" value="90" >Complex Analysis</option>
+                                                                                      <option id="topic_91" class="subset class-option" value="91" >Harmonic Analysis</option>
+                                                                                      <option id="topic_92" class="subset class-option" value="92" >Functional Analysis</option>
+                                                                                      <option id="topic_93" class="subset class-option" value="93" >Geometric Analysis</option>
+                                                                                      <option id="topic_94" class="subset class-option" value="94" >Other</option>
+                    
+                                                                                        <option id="topic_129" class="superset class-option" value="129" >Biological Mathematics</option>
+                                                                                        <option id="topic_95" class="superset class-option" value="95" >Differential Equations</option>
+                  
+                                                                                      <option id="topic_96" class="subset class-option" value="96" >Ordinary Differential Equations</option>
+                                                                                      <option id="topic_97" class="subset class-option" value="97" >Linear Partial Differential Equations</option>
+                                                                                      <option id="topic_98" class="subset class-option" value="98" >Nonlinear Partial Differential Equations</option>
+                                                                                      <option id="topic_99" class="subset class-option" value="99" >Other</option>
+                    
+                                                                                        <option id="topic_100" class="superset class-option" value="100" >Discrete Mathematics</option>
+                  
+                                                                                      <option id="topic_101" class="subset class-option" value="101" >Combinatorics</option>
+                                                                                      <option id="topic_102" class="subset class-option" value="102" >Graph Theory</option>
+                                                                                      <option id="topic_103" class="subset class-option" value="103" >Other</option>
+                    
+                                                                                        <option id="topic_104" class="superset class-option" value="104" >Dynamical Systems and Ergodic Theory</option>
+                  
+                                                                                      <option id="topic_105" class="subset class-option" value="105" >Discrete Time Systems</option>
+                                                                                      <option id="topic_106" class="subset class-option" value="106" >Continuous Time Systems</option>
+                                                                                      <option id="topic_107" class="subset class-option" value="107" >Other</option>
+                    
+                                                                                        <option id="topic_128" class="superset class-option" value="128" >Financial Mathematics</option>
+                                                                                        <option id="topic_83" class="superset class-option" value="83" >Geometry</option>
+                  
+                                                                                      <option id="topic_84" class="subset class-option" value="84" >Elementary Geometry</option>
+                                                                                      <option id="topic_85" class="subset class-option" value="85" >Differential Geometry</option>
+                                                                                      <option id="topic_86" class="subset class-option" value="86" >Algebraic Geometry</option>
+                                                                                      <option id="topic_87" class="subset class-option" value="87" >Other</option>
+                    
+                                                                                        <option id="topic_108" class="superset class-option" value="108" >Logic and Set Theory</option>
+                                                                                        <option id="topic_135" class="superset class-option" value="135" >Mathematical Modeling</option>
+                  
+                                                                                      <option id="topic_136" class="subset class-option" value="136" >Game Theory</option>
+                    
+                                                                                        <option id="topic_121" class="superset class-option" value="121" >Mathematical Physics</option>
+                  
+                                                                                      <option id="topic_122" class="subset class-option" value="122" >Mechanics</option>
+                                                                                      <option id="topic_123" class="subset class-option" value="123" >Fluid Dynamics</option>
+                                                                                      <option id="topic_124" class="subset class-option" value="124" >Quantum Physics and Field Theory</option>
+                                                                                      <option id="topic_125" class="subset class-option" value="125" >Statistical Physics</option>
+                                                                                      <option id="topic_126" class="subset class-option" value="126" >Relativity</option>
+                                                                                      <option id="topic_127" class="subset class-option" value="127" >Other</option>
+                    
+                                                                                        <option id="topic_137" class="superset class-option" value="137" >Mathematics Education</option>
+                                                                                        <option id="topic_78" class="superset class-option" value="78" >Number Theory</option>
+                  
+                                                                                      <option id="topic_79" class="subset class-option" value="79" >Additive Number Theory</option>
+                                                                                      <option id="topic_80" class="subset class-option" value="80" >Algebraic Number Theory</option>
+                                                                                      <option id="topic_81" class="subset class-option" value="81" >Analytic Number Theory</option>
+                                                                                      <option id="topic_132" class="subset class-option" value="132" >Elementary Number Theory</option>
+                                                                                      <option id="topic_82" class="subset class-option" value="82" >Other</option>
+                    
+                                                                                        <option id="topic_130" class="superset class-option" value="130" >Numerical Analysis</option>
+                                                                                        <option id="topic_116" class="superset class-option" value="116" >Probability</option>
+                  
+                                                                                      <option id="topic_117" class="subset class-option" value="117" >Elementary Probability</option>
+                                                                                      <option id="topic_118" class="subset class-option" value="118" >Stochastic Process</option>
+                                                                                      <option id="topic_119" class="subset class-option" value="119" >Other</option>
+                    
+                                                                                        <option id="topic_115" class="superset class-option" value="115" >Representation Theory</option>
+                                                                                        <option id="topic_120" class="superset class-option" value="120" >Statistics</option>
+                                                                                        <option id="topic_138" class="superset class-option" value="138" >Theory of Computation</option>
+                                                                                        <option id="topic_109" class="superset class-option" value="109" >Topology</option>
+                  
+                                                                                      <option id="topic_110" class="subset class-option" value="110" >Point Set Topology</option>
+                                                                                      <option id="topic_111" class="subset class-option" value="111" >Algebraic Topology</option>
+                                                                                      <option id="topic_112" class="subset class-option" value="112" >Differential Topology</option>
+                                                                                      <option id="topic_113" class="subset class-option" value="113" >Geometric Topology and Knot Theory</option>
+                                                                                      <option id="topic_114" class="subset class-option" value="114" >Other</option>
+                    
+                                                                                        <option id="topic_131" class="superset class-option" value="131" >Other</option>
+                                               </select>
+          </div>
+       </div>
+       <div class="form-group">
+          <label class="col-sm-3 control-label" for="titleOrSubtitleText">Title/Subtitle</label>
+          <div class="col-sm-9">
+             <input id="titleOrSubtitleText" name="titleOrSubtitle" placeholder="Full or partial text" class="form-control input-md" type="text" value="">
+          </div>
+       </div> 
+       <div class="form-group">
+          <label class="col-sm-3 control-label" for="descriptionText">Description</label>
+          <div class="col-sm-9">
+             <input id="descriptionText" name="description" placeholder="Full or partial text" class="form-control input-md" type="text" value="">
+          </div>
+       </div>
+       <div class="form-group">
+          <label class="col-sm-3 control-label" for="authorLastNameText">Author</label>
+          <div class="col-sm-9">
+             <input id="authorLastNameText" name="authorLastName" placeholder="Author's last name" class="form-control input-md" type="text" value="">
+          </div>
+       </div>
+       <div class="form-group">
+          <label class="col-sm-3 control-label" for="authorAffiliationText">Author's Affiliation</label>
+          <div class="col-sm-9">
+             <input id="authorAffiliationText" name="authorAffiliation" placeholder="Author's affiliation" class="form-control input-md" type="text" value="">
+          </div>
+       </div>
+       <div class="form-group">
+          <label class="col-sm-3 control-label" for="searchTxtText">Anywhere</label>
+          <div class="col-sm-9">
+             <input id="searchTxtText" name="searchTxt" placeholder="Search for text appearing anywhere" class="form-control input-md" type="text" value="">
+          </div>
+       </div>
+       <div class="form-group">
+           <label class="col-sm-3 control-label" for="sortBy">Sort by</label>
+           <div class="col-sm-9">
+              <select class="omn-paginate-select-sort form-control">
+                <option value="submit_date" data-sort-dir="DESC">Date posted</option>
+                <option value="updated" data-sort-dir="DESC">Date revised</option>
+                <option value="title" data-sort-dir="ASC">Title</option>
+                <option value="author_last_name" data-sort-dir="ASC">Author</option>
+                <option value="download_count" data-sort-dir="DESC">Most downloaded</option>
+              </select>
+           </div>
+        </div>
+       <div class="form-group text-center">
+          <div>
+             <a class="btn btn-info" href="/open-math-notes/omn-advanced-search" role="button"><i class="far fa-undo"></i> Reset</a>
+             <button id="submitActionBtn" name="submitAction" type="submit" class="btn btn-primary" value="advancedSearch"><i class="far fa-search"></i> Find Math Notes</button>
+          </div>
+          <div class="clearfix"><br>
+          </div>
+       </div>
+   </form>
+</section>
+
+    </div>
+    <div id="advisory_board">
+    <section id="imprimatur">
+      <div class="squarebox">
+        <h2 class="AMS_gray_foreground text-uppercase text-center">Open Math Notes Advisory Board:</h2>
+        <ul class="list-unstyled text-center">
+          <li>Karen Vogtmann, Chair | University of Warwick</li>
+          <li>Tom Halverson | Macalester College</li>
+          <li>Andrew Hwang | College of the Holy Cross</li>
+          <li>Robert Lazarsfeld | Stony Brook University</li>
+          <li>Mary Pugh | University of Toronto</li>
+        </ul>
+        <p class="AMS_gray_foreground text-lowercase text-center"><strong><em><a href="/open-math-notes/omn-contact-us">contact</a></em></strong></p>
+      </div>
+    </section>
+
+    </div>
+  </div>
+  <div id="right_column" class="col-md-7">
+      <div class="row">
+    <div class="col-md-12">
+
+      
+
+      <form method="post" class="form-horizontal" onsubmit="return recaptchaVerify();" action="/open-math-notes/files/course-material/OMN-201908-110802-1-Course_notes-v1.pdf">
+        <center>
+        <fieldset>
+          <legend><h3>Please check the "I'm not a robot" checkbox to continue</h3></legend>
+          <div class="form-group text-center">
+            <center><div class="g-recaptcha" data-callback="recaptchaCallback" data-expired-callback="recaptchaExpiredCallback" data-sitekey="6LeH4QAAAAAAANI7y1KupR_sui19sJPl6nnQDrMq"></div>
+            </center>
+          </div>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary" value="human" name="userIsA">Continue</button>
+            <span class="help-block">Downloading large files may take a while</span>
+          </div>
+        </fieldset>
+        </center>
+      </form>
+    </div>
+  </div>
+
+  </div>
+  <!-- / center column -->
+</div>
+
+</div>
+
+<!-- css at bottom to reduce render blocking -->
+<!-- Fontawesome local CSS -->
+<link href="/fontawesome/css/all.css" rel="stylesheet">
+<!-- Print CSS -->    
+<link href="/css/2022-print.css" media="print" rel="stylesheet" />
+<!--Footer-->
+<footer id="pagefooter">
+  <div> <a href="/"><img src="/images/content/footer-line.png" alt="Link to the American Mathematical Society homepage" class="img-responsive" loading="lazy" width="2197" height="100" aria-label="Return to homepage"></a></div>
+
+ <section class="col-md-12 col-sm-12 text-center">
+<aside class="row" id="">
+<!-- Fontawesome script -->
+<script src="https://kit.fontawesome.com/2ad6d7fbd6.js" crossorigin="anonymous" defer></script>
+<ul class="list-inline">
+<li class="list-inline-item"><a href="https://www.facebook.com/amermathsoc" class="link-dark" title="Follow us on Facebook" aria-label="View the AMS on Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+<li class="list-inline-item"><a href="https://twitter.com/amermathsoc" class="link-dark" title="Follow us on X" aria-label="View the AMS on X"><i class="fa-brands fa-x-twitter"></i></a></li>
+<li class="list-inline-item"><a href="https://www.linkedin.com/company/51001" class="link-dark" title="Follow us on LinkedIn" aria-label="View the AMS on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+<li class="list-inline-item"><a href="https://www.instagram.com/amermathsoc" class="link-dark" title="Follow us on Instagram" aria-label="View the AMS on Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+<li class="list-inline-item"><a href="https://www.youtube.com/amermathsoc" class="link-dark" title="Follow us on YouTube" aria-label="View the AMS on YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+</ul>
+</aside>
+      <p>American Mathematical Society &middot; 
+      <a href="https://goo.gl/maps/ZvJdkQEC79p" title="Google map 201 Charles Street Providence, Rhode Island" aria-label="Google map to AMS headquarters">201 Charles Street Providence, Rhode Island 02904-2213</a> &middot; <a href="/reach" aria-label="Contact Us">Contact Us</a></p>
+      <p><small>AMS, American Mathematical Society, the tri-colored AMS logo, and Advancing research, Creating connections, are trademarks and services marks of the American Mathematical Society and registered in the U.S. Patent and Trademark Office.</small></p>
+<p> &copy; <a href="/copyright" aria-label="Copyright policy">Copyright</a> 
+	  <script>
+    var now = new Date();
+        document.write(now.getFullYear());
+          </script> American Mathematical Society &middot; <a href="/privacy" aria-label="Privacy statement">View Our Privacy Statement</a> &middot; <a href="/tou" aria-label="Terms of use">Terms of Use</a> &middot; <a href="/accessibility" aria-label="Accessibility policy"> Accessibility and AMS Online Content</a></p>
+    </section>
+</footer>
+</body>
+</html>
+
