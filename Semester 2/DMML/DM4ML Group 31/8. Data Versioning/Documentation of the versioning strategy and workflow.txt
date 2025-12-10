@@ -1,0 +1,33 @@
+﻿Feature Versioning and Tracking
+This part documents the implementation of feature versioning and tracking in the project, ensuring reproducibility, auditability, and clear lineage of feature transformations.
+The code:
+* Maintains multiple versions of engineered feature snapshots to support rollback and debugging.
+* Tracks changes and additions to features explicitly in metadata with version identifiers.
+* Provides evidence of feature evolution with side-by-side comparisons and reporting.
+8.1 Implementation Details
+8.1.1 Snapshot Versioning
+* Feature snapshots are stored as CSV files named with a consistent schema including a snapshot prefix, ingestion date, and version suffix, e.g.:
+   * generic_features_2025-06-30_v1.csv
+   * generic_features_2025-06-30_v2.csv
+* The script automatically detects the latest v1 and v2 snapshots by filename if explicit dates are not found, ensuring flexibility.
+* The v2 snapshot:
+   * Introduces a new derived feature services_per_tenure (services_count divided by tenure, clipped properly to avoid division errors).
+   * Modifies the existing feature services_count_minmax by increasing its value by 0.05 if PhoneService == 1, clipped between 0 and 1.
+8.1.2 Metadata Management
+* Feature metadata is stored in feature_metadata.csv and updated with each version:
+   * Existing features with logic changes have their version bumped (e.g., services_count_minmax updated to version 2.0.0 with description).
+   * New features are added with version 1.0.0, source description, and data type annotations.
+* The metadata file supports keeping a comprehensive record of feature definitions, versions, and provenance.
+8.2 Reporting and Evidence
+* A report comparing the number of rows, added/removed columns between v1 and v2 snapshots is generated.
+* Sample value changes for updated features are displayed side-by-side.
+* The updated metadata table head is displayed.
+* A textual version of this summary is saved to versioning_demo_output.txt.
+* A markdown report, Feature_Versioning_Report.md, documents the rationale, naming conventions, and evidence files.
+8.3 Packaging for Submission
+* Key files packaged for submission include:
+   * Feature snapshots (v1 and v2 CSVs)
+   * Updated feature metadata CSV
+   * Versioning report text file
+   * Markdown report summarizing the feature versioning approach and artifacts
+* A manifest file lists the included files, sizes, and MD5 hashes for integrity verification.

@@ -1,0 +1,21 @@
+feature_name,dtype,description,source,version
+Churn,int,Target variable: Churn,merged_generic_v1,1.0.0
+Dependents,int,Auto metadata for Dependents,merged_generic_v1,1.0.0
+InternetService_Fiber optic,string,Auto metadata for InternetService_Fiber optic,merged_generic_v1,1.0.0
+InternetService_No,string,Auto metadata for InternetService_No,merged_generic_v1,1.0.0
+MultipleLines_No phone service,string,Auto metadata for MultipleLines_No phone service,merged_generic_v1,1.0.0
+MultipleLines_Yes,string,Auto metadata for MultipleLines_Yes,merged_generic_v1,1.0.0
+OnlineBackup_No internet service,string,Auto metadata for OnlineBackup_No internet service,merged_generic_v1,1.0.0
+OnlineBackup_Yes,string,Auto metadata for OnlineBackup_Yes,merged_generic_v1,1.0.0
+OnlineSecurity_No internet service,string,Auto metadata for OnlineSecurity_No internet service,merged_generic_v1,1.0.0
+OnlineSecurity_Yes,string,Auto metadata for OnlineSecurity_Yes,merged_generic_v1,1.0.0
+Partner,int,Auto metadata for Partner,merged_generic_v1,1.0.0
+PhoneService,int,Auto metadata for PhoneService,merged_generic_v1,1.0.0
+SeniorCitizen,float,Auto metadata for SeniorCitizen,merged_generic_v1,1.0.0
+gender,int,Auto metadata for gender,merged_generic_v1,1.0.0
+row_id,int,Auto metadata for row_id,merged_generic_v1,1.0.0
+services_count,int,Auto metadata for services_count,merged_generic_v1,1.0.0
+services_count_minmax,float,"Min-max scaled services_count (v2 logic: +0.05 if PhoneService==1, clipped to [0,1])",transformation_v2,2.0.0
+services_count_z,float,Auto metadata for services_count_z,merged_generic_v1,1.0.0
+services_per_tenure,float,"Derived: services_count / max(tenure, 1) (v2)",transformation_v2,1.0.0
+tenure,float,Auto metadata for tenure,merged_generic_v1,1.0.0

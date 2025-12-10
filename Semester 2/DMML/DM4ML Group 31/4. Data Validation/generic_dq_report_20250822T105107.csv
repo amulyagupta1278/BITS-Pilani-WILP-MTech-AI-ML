@@ -1,0 +1,15 @@
+dataset,check,column,value,details
+generic,missing,customerID,0,
+generic,missing,gender,1000,
+generic,missing,SeniorCitizen,1000,
+generic,missing,Partner,1000,
+generic,missing,Dependents,1000,
+generic,missing,tenure,1000,
+generic,missing,PhoneService,1000,
+generic,missing,MultipleLines,1000,
+generic,missing,InternetService,1000,
+generic,missing,OnlineSecurity,1000,
+generic,missing,OnlineBackup,1000,
+generic,missing,Churn,0,
+generic,duplicates,ID,0,
+generic,resolution,-,0,No action required (no missing/duplicates/range/domain issues)
