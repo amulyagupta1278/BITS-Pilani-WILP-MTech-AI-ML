@@ -1,0 +1,2 @@
+https://medium.com/coriers/data-engineering-vs-machine-learning-pipelines-82d0e1be410c
+https://neptune.ai/blog/building-end-to-end-ml-pipeline

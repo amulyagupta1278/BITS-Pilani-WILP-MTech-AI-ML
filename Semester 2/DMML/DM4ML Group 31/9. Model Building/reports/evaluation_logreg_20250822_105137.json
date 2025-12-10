@@ -1,0 +1,64 @@
+{
+  "timestamp": "20250822_105137",
+  "model_name": "logreg",
+  "model_params": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": null,
+    "max_iter": 100000,
+    "multi_class": "deprecated",
+    "n_jobs": null,
+    "penalty": "l2",
+    "random_state": null,
+    "solver": "liblinear",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "metrics": {
+    "accuracy": 0.5472779369627507,
+    "precision": 0.5333333333333333,
+    "recall": 0.5647058823529412,
+    "f1": 0.5485714285714286,
+    "roc_auc": 0.5630093657574762
+  },
+  "classification_report": "              precision    recall  f1-score   support\n\n           0     0.5621    0.5307    0.5460       358\n           1     0.5333    0.5647    0.5486       340\n\n    accuracy                         0.5473       698\n   macro avg     0.5477    0.5477    0.5473       698\nweighted avg     0.5481    0.5473    0.5472       698\n",
+  "confusion_matrix": [
+    [
+      190,
+      168
+    ],
+    [
+      148,
+      192
+    ]
+  ],
+  "model_path": "/content/drive/MyDrive/DMML_Project/models/logreg_20250822_105137.pkl",
+  "feature_snapshot_path": "/content/drive/MyDrive/DMML_Project/data/feature_store/feature_data/generic_features_2025-08-22_v2.csv",
+  "feature_snapshot_md5": "5344bb8aeea4c3272bfecdf2ae751acc",
+  "n_train": 2788,
+  "n_test": 698,
+  "feature_columns": [
+    "gender",
+    "SeniorCitizen",
+    "Partner",
+    "Dependents",
+    "tenure",
+    "PhoneService",
+    "MultipleLines_No phone service",
+    "MultipleLines_Yes",
+    "InternetService_Fiber optic",
+    "InternetService_No",
+    "OnlineSecurity_No internet service",
+    "OnlineSecurity_Yes",
+    "OnlineBackup_No internet service",
+    "OnlineBackup_Yes",
+    "services_count",
+    "services_count_minmax",
+    "services_count_z",
+    "services_per_tenure"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "timestamp": "20250822_105524",
+  "model_name": "random_forest",
+  "model_params": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced_subsample",
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 30000,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "metrics": {
+    "accuracy": 0.5157593123209169,
+    "precision": 0.5032051282051282,
+    "recall": 0.46176470588235297,
+    "f1": 0.4815950920245399,
+    "roc_auc": 0.5110951363785737
+  },
+  "classification_report": "              precision    recall  f1-score   support\n\n           0     0.5259    0.5670    0.5457       358\n           1     0.5032    0.4618    0.4816       340\n\n    accuracy                         0.5158       698\n   macro avg     0.5146    0.5144    0.5136       698\nweighted avg     0.5148    0.5158    0.5145       698\n",
+  "confusion_matrix": [
+    [
+      203,
+      155
+    ],
+    [
+      183,
+      157
+    ]
+  ],
+  "model_path": "/content/drive/MyDrive/DMML_Project/models/random_forest_20250822_105524.pkl",
+  "feature_snapshot_path": "/content/drive/MyDrive/DMML_Project/data/feature_store/feature_data/generic_features_2025-08-22_v2.csv",
+  "feature_snapshot_md5": "5344bb8aeea4c3272bfecdf2ae751acc",
+  "n_train": 2788,
+  "n_test": 698,
+  "feature_columns": [
+    "gender",
+    "SeniorCitizen",
+    "Partner",
+    "Dependents",
+    "tenure",
+    "PhoneService",
+    "MultipleLines_No phone service",
+    "MultipleLines_Yes",
+    "InternetService_Fiber optic",
+    "InternetService_No",
+    "OnlineSecurity_No internet service",
+    "OnlineSecurity_Yes",
+    "OnlineBackup_No internet service",
+    "OnlineBackup_Yes",
+    "services_count",
+    "services_count_minmax",
+    "services_count_z",
+    "services_per_tenure"
+  ]
+}

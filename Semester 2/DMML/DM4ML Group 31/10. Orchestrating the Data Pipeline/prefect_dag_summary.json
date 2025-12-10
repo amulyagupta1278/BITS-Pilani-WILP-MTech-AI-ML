@@ -1,0 +1,166 @@
+{
+  "metadata": {
+    "title": "Prefect DAG \u2014 End-to-End ML Data Pipeline",
+    "runtime": "Google Colab",
+    "orchestrator": "Prefect 2",
+    "storage": "Google Drive"
+  },
+  "flow_order": [
+    "INGEST",
+    "VALIDATE",
+    "PREPARE",
+    "FEATURE_STORE",
+    "VERSION_SNAPSHOT",
+    "TRAIN",
+    "EVALUATE",
+    "PUBLISH"
+  ],
+  "nodes": [
+    {
+      "stage": "INGEST",
+      "objective": "Bring raw data into the run",
+      "inputs": [
+        "Source path(s) on Drive or external source"
+      ],
+      "outputs": [
+        "data/raw/input.csv"
+      ],
+      "notes": "Light file sanity (exists/size)"
+    },
+    {
+      "stage": "VALIDATE",
+      "objective": "Prove data is usable",
+      "inputs": [
+        "Raw CSV"
+      ],
+      "outputs": [
+        "validation_report.json"
+      ],
+      "notes": "Row/col counts, dtypes, missingness, target presence; fail fast on schema/target issues"
+    },
+    {
+      "stage": "PREPARE",
+      "objective": "Clean & split",
+      "inputs": [
+        "Raw CSV"
+      ],
+      "outputs": [
+        "data/curated/train.csv",
+        "data/curated/test.csv"
+      ],
+      "notes": "Deterministic split for reproducibility"
+    },
+    {
+      "stage": "FEATURE_STORE",
+      "objective": "Materialize training/inference features",
+      "inputs": [
+        "Curated splits"
+      ],
+      "outputs": [
+        "artifacts/<version>/feature_store/train_features.csv",
+        "artifacts/<version>/feature_store/test_features.csv"
+      ],
+      "notes": "Can evolve to engineered/domain features"
+    },
+    {
+      "stage": "VERSION_SNAPSHOT",
+      "objective": "Freeze run provenance",
+      "inputs": [
+        "Feature store path",
+        "Run metadata"
+      ],
+      "outputs": [
+        "artifacts/<version>/manifest.json"
+      ],
+      "notes": "Ties data, features, env, params to <version>"
+    },
+    {
+      "stage": "TRAIN",
+      "objective": "Fit model",
+      "inputs": [
+        "Train features"
+      ],
+      "outputs": [
+        "artifacts/<version>/model.joblib"
+      ],
+      "notes": "Log hyperparameters & seed"
+    },
+    {
+      "stage": "EVALUATE",
+      "objective": "Quantify performance",
+      "inputs": [
+        "Test features",
+        "Model artifact"
+      ],
+      "outputs": [
+        "artifacts/<version>/metrics.json"
+      ],
+      "notes": "Accuracy and classification report; include confusion-matrix metrics if applicable"
+    },
+    {
+      "stage": "PUBLISH",
+      "objective": "Executive summary",
+      "inputs": [
+        "Validation report",
+        "Metrics",
+        "Manifest"
+      ],
+      "outputs": [
+        "artifacts/<version>/run_summary.json"
+      ],
+      "notes": "Single place to link in your report"
+    }
+  ],
+  "dependencies": [
+    [
+      "INGEST",
+      "VALIDATE"
+    ],
+    [
+      "VALIDATE",
+      "PREPARE"
+    ],
+    [
+      "PREPARE",
+      "FEATURE_STORE"
+    ],
+    [
+      "FEATURE_STORE",
+      "VERSION_SNAPSHOT"
+    ],
+    [
+      "FEATURE_STORE",
+      "TRAIN"
+    ],
+    [
+      "TRAIN",
+      "EVALUATE"
+    ],
+    [
+      "EVALUATE",
+      "PUBLISH"
+    ]
+  ],
+  "artifact_tree": {
+    "artifacts/<version>/": [
+      "feature_store/train_features.csv",
+      "feature_store/test_features.csv",
+      "model.joblib",
+      "metrics.json",
+      "manifest.json",
+      "run_summary.json"
+    ],
+    "data/": [
+      "raw/input.csv",
+      "curated/train.csv",
+      "curated/test.csv"
+    ]
+  },
+  "run_characteristics": [
+    "Versioned runs (timestamped <version>) for lineage and reproducibility",
+    "Observability via Prefect task logs + JSON artifacts (validation, metrics, manifest, summary)",
+    "Reliability: retries on I/O-prone steps; fail-fast validation prevents wasted training",
+    "Portability: Colab-friendly; storage defaults to Drive but can point to GCS/BigQuery later"
+  ],
+  "one_paragraph_summary": "The pipeline is orchestrated with Prefect 2, enforcing a strict dependency order\u2014Ingest \u2192 Validate \u2192 Prepare \u2192 Feature Store \u2192 Version Snapshot \u2192 Train \u2192 Evaluate \u2192 Publish\u2014to move data from raw inputs to deploy-ready model artifacts. Each flow run is versioned with a timestamp, producing a complete, reproducible snapshot of features, model, metrics, and a manifest under artifacts/<version>/. Validation is fail-fast, training and evaluation are observable via Prefect logs and JSON metrics, and a concise run summary consolidates links to all outputs for reporting and audit."
+}

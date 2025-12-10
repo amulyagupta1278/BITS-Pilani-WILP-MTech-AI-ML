@@ -1,0 +1,31 @@
+{
+  "run_id": "2025-08-23T10:56:57.499258",
+  "executed_notebooks": [
+    "orchestration_artifacts/DMML_4_5_6_patched_executed.ipynb",
+    "orchestration_artifacts/Script-7to9_patched_executed.ipynb",
+    "orchestration_artifacts/Task_2_patched_executed.ipynb",
+    "orchestration_artifacts/Task_3_patched_executed.ipynb"
+  ],
+  "raw": [
+    "data/raw/generic",
+    "data/raw/generic/generic_churn_sample.csv",
+    "data/raw/telco",
+    "data/raw/telco/telco_sample.csv"
+  ],
+  "validated": [
+    "data/validated/generic.csv",
+    "data/validated/telco.csv"
+  ],
+  "transformed": [
+    "data/transformed/churn_features.csv"
+  ],
+  "feature_store": [],
+  "models": [
+    "models/logreg.pkl",
+    "models/random_forest.pkl"
+  ],
+  "reports": [
+    "reports/evaluation_logreg.json",
+    "reports/evaluation_random_forest.json"
+  ]
+}
